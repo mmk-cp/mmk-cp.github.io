@@ -1,9 +1,9 @@
 <div align="center">
 
-# سلام، من محمد مهدی کریمی هستم 👋
+# Hi, I'm Mohammad Mehdi Karimi 👋
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&size=22&duration=3200&pause=900&color=2F81F7&center=true&vCenter=true&width=620&lines=Back-end+Developer+%7C+DevOps+%7C+WordPress;Python+%7C+PHP+%7C+Data-driven+Web+Apps;ساختن+چیزهای+ساده،+سریع+و+قابل+اعتماد+%E2%9C%A8" alt="Typing introduction" />
+  <img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&size=22&duration=3200&pause=900&color=2F81F7&center=true&vCenter=true&width=620&lines=Back-end+Developer+%7C+DevOps+%7C+WordPress;Python+%7C+PHP+%7C+Data-driven+Web+Apps;Building+simple%2C+fast+and+reliable+things+%E2%9C%A8" alt="Typing introduction" />
 </a>
 
 <p>
@@ -14,19 +14,19 @@
 
 </div>
 
-## کمی درباره من 🚀
+## A little about me 🚀
 
-من توسعه‌دهنده‌ای هستم که بیشتر وقتم را صرف ساخت سرویس‌های بک‌اند، APIهای REST و وب‌اپلیکیشن‌های داده‌محور می‌کنم. کنار کدنویسی، به اجرای پایدار سرویس‌ها، DevOps و ساخت سایت و افزونه‌های WordPress/WooCommerce هم می‌پردازم.
+I spend most of my time building back-end services, REST APIs, and data-driven web applications. Alongside coding, I care about reliable service delivery, DevOps, and building WordPress/WooCommerce websites and plugins.
 
 ```python
 me = {
     "focus": ["Back-end", "DevOps", "WordPress"],
-    "currently_building": "سرویس‌های وب سریع و قابل نگه‌داری",
-    "motto": "مسئله را خوب بفهم؛ بعد ساده‌ترین راه‌حل درست را بساز."
+    "currently_building": "Fast, maintainable web services",
+    "motto": "Understand the problem well; then build the simplest right solution."
 }
 ```
 
-## جعبه‌ابزار من 🧰
+## My toolbox 🧰
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
@@ -41,23 +41,23 @@ me = {
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 
-## این روزها در بیجک مشغولم 🧩
+## What I'm doing at Bijak 🧩
 
-در بیجک به‌عنوان توسعه‌دهندهٔ **Back-end، DevOps و WordPress** روی محصولات و سرویس‌های وب کار می‌کنم:
+At Bijak, I work as a **Back-end, DevOps & WordPress Developer** across web products and services:
 
-- توسعه و نگه‌داری سرویس‌های بک‌اند و APIها با Python، Django و FastAPI.
-- آماده‌سازی و اجرای سرویس‌ها با Docker، Linux، Git و ابزارهای زیرساختی.
-- طراحی و توسعهٔ سایت وردپرسی شرکت و برنامه‌نویسی افزونه‌های WordPress/WooCommerce.
-- کار با پایگاه‌های دادهٔ رابطه‌ای و NoSQL برای سرویس‌های قابل اتکا و قابل نگه‌داری.
+- Developing and maintaining back-end services and APIs with Python, Django, and FastAPI.
+- Preparing and running services with Docker, Linux, Git, and infrastructure tooling.
+- Designing the company's WordPress website and developing WordPress/WooCommerce plugins.
+- Working with relational and NoSQL databases to build reliable, maintainable services.
 
-## در تماس باشیم 💬
+## Let's connect 💬
 
-برای همکاری، گفت‌وگوی فنی یا فقط یک سلام دوستانه:
+For collaboration, a technical chat, or just a friendly hello:
 
 [Website](https://mmk-cp.ir/) · [Telegram](https://t.me/mmk_cp) · [Bale](https://ble.ir/mmk_cp) · [WhatsApp](https://wa.me/989009993232) · [Email](mailto:mail@mmk-cp.ir)
 
 <div align="center">
 
-### ممنون که سر زدی 🌱
+### Thanks for stopping by 🌱
 
 </div>
