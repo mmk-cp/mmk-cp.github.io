@@ -1,0 +1,9 @@
+{
+  "name": "Mohammad Mehdi Karimi Resume",
+  "short_name": "MMK Resume",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f6f9",
+  "theme_color": "#0f172a",
+  "icons": []
+}
