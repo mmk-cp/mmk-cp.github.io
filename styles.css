@@ -276,6 +276,10 @@ html[lang="en"] .github-link { font-family: var(--font-en); }
   .print-item li + li { margin-top: .8mm; }
   .print-github { margin: 1.5mm 0 0; color: #3d514b; line-height: 1.7; }
   .print-github a { color: #087f6b; font-family: var(--font-en); text-decoration: none; }
+  .print-repo-list { display: grid; gap: 1.8mm; margin: 2.5mm 0 0; padding: 0; list-style: none; }
+  .print-repo-list li { display: flex; align-items: baseline; gap: 3mm; color: #3d514b; line-height: 1.65; break-inside: avoid; page-break-inside: avoid; }
+  .print-repo-list a { flex: 0 0 44mm; color: #087f6b; font-family: var(--font-en); font-size: 8.2pt; font-weight: 700; overflow-wrap: anywhere; text-decoration: none; }
+  .print-repo-list span { min-width: 0; font-size: 8.5pt; }
   .print-final-section { break-inside: avoid; page-break-inside: avoid; }
   .print-final-section > div { min-width: 0; }
   .print-final-section > div + div { margin-top: 3mm; }
