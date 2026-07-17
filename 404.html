@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17332f">
+  <meta name="robots" content="noindex">
+  <title>مسیر پیدا نشد | MMK Resume</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep: #17332f;
+      --deep-soft: #23443e;
+      --teal: #087f6b;
+      --teal-soft: #d9eee7;
+      --coral: #bd5141;
+      --ink: #172622;
+      --muted: #61736d;
+      --line: #d7e3de;
+      --paper: #f3f7f5;
+      --font-fa: "Vazirmatn", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+      --font-en: "Inter", "Noto Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font-fa); }
+    a, button { font: inherit; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid rgba(8, 127, 107, .35); outline-offset: 4px; }
+    .not-found-page { position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+    .not-found-page::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .42; background-image: linear-gradient(rgba(8, 127, 107, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(8, 127, 107, .08) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, #000, transparent 78%); }
+    .nf-header { position: relative; z-index: 1; width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 26px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nf-brand { display: inline-flex; align-items: center; gap: 11px; color: var(--deep); text-decoration: none; }
+    .nf-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 8px; color: #fff; background: var(--deep); font: 800 11px var(--font-en); }
+    .nf-brand-copy { display: grid; line-height: 1.35; }
+    .nf-brand-copy strong { font-size: 13px; }
+    .nf-brand-copy small { color: var(--muted); font-size: 10px; }
+    .nf-status { display: inline-flex; align-items: center; gap: 7px; color: var(--teal); font: 800 10px var(--font-en); letter-spacing: .06em; direction: ltr; }
+    .nf-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); }
+    .nf-main { position: relative; z-index: 1; width: min(920px, calc(100% - 40px)); margin: auto; padding: 42px 0 70px; }
+    .nf-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); align-items: center; gap: 58px; }
+    .nf-code { color: var(--deep); font: 800 132px/.85 var(--font-en); letter-spacing: 0; text-align: center; }
+    .nf-code span { display: block; color: var(--coral); font-size: 16px; line-height: 1.3; letter-spacing: .08em; }
+    .nf-copy { min-width: 0; padding-inline-start: 34px; border-inline-start: 1px solid var(--line); }
+    .nf-copy h1 { margin: 0; color: var(--deep); font-size: 32px; line-height: 1.35; }
+    .nf-copy h1::after { content: "_"; color: var(--coral); animation: cursor 1s steps(2, end) infinite; }
+    .nf-copy > p { max-width: 600px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 2; }
+    .nf-copy .nf-en { margin-top: 5px; font: 500 13px/1.7 var(--font-en); direction: ltr; text-align: start; }
+    .nf-terminal { margin: 25px 0 0; padding: 17px 19px; border: 1px solid #315950; border-radius: 7px; color: #cde4dc; background: var(--deep); font: 500 12px/1.9 var(--font-en); direction: ltr; overflow: auto; }
+    .nf-terminal .prompt { color: #8fe0cd; }
+    .nf-terminal .comment { color: #9db6ae; }
+    .nf-terminal code { color: #fff; }
+    .nf-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .nf-button { min-height: 43px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border: 1px solid transparent; border-radius: 6px; font-size: 12px; font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .18s ease, background .18s ease, border-color .18s ease; }
+    .nf-button:hover { transform: translateY(-1px); }
+    .nf-button svg { width: 16px; height: 16px; fill: currentColor; }
+    .nf-button-primary { color: #fff; background: var(--deep); border-color: var(--deep); }
+    .nf-button-primary:hover { background: var(--teal); border-color: var(--teal); }
+    .nf-button-secondary { color: var(--teal); background: transparent; border-color: #9fc9bc; }
+    .nf-button-secondary:hover { border-color: var(--teal); background: var(--teal-soft); }
+    .nf-footer { position: relative; z-index: 1; width: min(1120px, calc(100% - 40px)); margin: auto auto 0; padding: 18px 0 24px; border-top: 1px solid var(--line); color: #71817b; font-size: 10px; text-align: center; }
+    @keyframes cursor { 0%, 45% { opacity: 1; } 46%, 100% { opacity: 0; } }
+    @media (max-width: 700px) {
+      .nf-header { width: min(100% - 28px, 560px); padding-block: 18px; }
+      .nf-brand-copy { display: none; }
+      .nf-status { font-size: 9px; }
+      .nf-main { width: min(100% - 28px, 560px); padding: 35px 0 55px; }
+      .nf-layout { display: block; }
+      .nf-code { font-size: 92px; text-align: start; }
+      .nf-code span { display: inline; margin-inline-start: 8px; font-size: 12px; }
+      .nf-copy { margin-top: 20px; padding: 0; border: 0; }
+      .nf-copy h1 { font-size: 26px; }
+      .nf-copy > p { font-size: 13px; line-height: 1.95; }
+      .nf-terminal { font-size: 11px; }
+      .nf-actions { flex-direction: column; }
+      .nf-button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nf-copy h1::after { animation: none; }
+      .nf-button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="not-found-page">
+    <header class="nf-header">
+      <a class="nf-brand" href="/" aria-label="بازگشت به رزومه">
+        <span class="nf-mark" aria-hidden="true">MMK</span>
+        <span class="nf-brand-copy"><strong>Mohammad Mehdi Karimi</strong><small>Back-end · DevOps · WordPress</small></span>
+      </a>
+      <span class="nf-status"><i aria-hidden="true"></i> ROUTE_NOT_FOUND</span>
+    </header>
+
+    <main class="nf-main">
+      <div class="nf-layout">
+        <div class="nf-code" aria-hidden="true">404<span>NOT FOUND</span></div>
+        <section class="nf-copy" aria-labelledby="not-found-title">
+          <h1 id="not-found-title">این مسیر در رزومه پیدا نشد</h1>
+          <p>احتمالاً این لینک هنوز به تیم پروژه ملحق نشده است. آدرس را بررسی کن یا از مسیر اصلی ادامه بده.</p>
+          <p class="nf-en">This route did not make it to the final build. Check the address or return to the resume.</p>
+          <pre class="nf-terminal"><span class="prompt">$</span> find <code id="missingPath">/requested-route</code>
+<span class="comment"># result</span> <code>route not found</code>
+<span class="prompt">$</span> cd <code>/resume</code></pre>
+          <div class="nf-actions">
+            <a class="nf-button nf-button-primary" href="/">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 8h-3v9H6v-9H3l9-8Zm0 2.7L7.3 10H8v8h8v-8h.7L12 5.7Z"/></svg>
+              <span>بازگشت به رزومه</span>
+            </a>
+            <button class="nf-button nf-button-secondary" id="backButton" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10.8 5.2 1.4 1.4L8.8 10H21v2H8.8l3.4 3.4-1.4 1.4L5 11l5.8-5.8Z"/></svg>
+              <span>صفحهٔ قبل</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="nf-footer">MMK Resume · مسیرهای سالم، کدهای قابل نگه‌داری</footer>
+  </div>
+  <script>
+    const path = document.getElementById('missingPath');
+    if (path) path.textContent = window.location.pathname || '/';
+    document.getElementById('backButton').addEventListener('click', () => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = '/';
+    });
+  </script>
+</body>
+</html>
