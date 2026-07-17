@@ -41,11 +41,14 @@ me = {
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 
-## چند چیزی که ساخته‌ام 🔧
+## این روزها در بیجک مشغولم 🧩
 
-- **سامانه گردش مکاتبات**؛ ثبت، ارجاع و پیگیری نامه‌ها با معماری مناسب داده‌های حجیم.
-- **اپلیکیشن دفترچه تلفن**؛ جست‌وجو و صفحه‌بندی سریع برای سناریوهایی با حدود ۱۰ میلیون رکورد.
-- **سایت و افزونه‌های WordPress/WooCommerce** برای تجربه‌های محتوایی و فروشگاهی.
+در بیجک به‌عنوان توسعه‌دهندهٔ **Back-end، DevOps و WordPress** روی محصولات و سرویس‌های وب کار می‌کنم:
+
+- توسعه و نگه‌داری سرویس‌های بک‌اند و APIها با Python، Django و FastAPI.
+- آماده‌سازی و اجرای سرویس‌ها با Docker، Linux، Git و ابزارهای زیرساختی.
+- طراحی و توسعهٔ سایت وردپرسی شرکت و برنامه‌نویسی افزونه‌های WordPress/WooCommerce.
+- کار با پایگاه‌های دادهٔ رابطه‌ای و NoSQL برای سرویس‌های قابل اتکا و قابل نگه‌داری.
 
 ## در تماس باشیم 💬
 
