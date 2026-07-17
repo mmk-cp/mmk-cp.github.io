@@ -48,7 +48,6 @@ At Bijak, I work as a **Back-end, DevOps & WordPress Developer** across web prod
 - Developing and maintaining back-end services and APIs with Python, Django, and FastAPI.
 - Preparing and running services with Docker, Linux, Git, and infrastructure tooling.
 - Designing the company's WordPress website and developing WordPress/WooCommerce plugins.
-- Working with relational and NoSQL databases to build reliable, maintainable services.
 
 ## Let's connect 💬
 
