@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hi, I'm Mohammad Mehdi Karimi 👋
+# Hi, I'm Mohammad Mahdi Karimi 👋
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.demolab.com?font=Vazirmatn&size=22&duration=3200&pause=900&color=2F81F7&center=true&vCenter=true&width=620&lines=Back-end+Developer+%7C+DevOps+%7C+WordPress;Python+%7C+PHP+%7C+Data-driven+Web+Apps;Building+simple%2C+fast+and+reliable+things+%E2%9C%A8" alt="Typing introduction" />

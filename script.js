@@ -141,7 +141,7 @@ const translations = {
   },
   en: {
     skip: 'Skip to main content',
-    brandName: 'Mohammad Mehdi Karimi',
+    brandName: 'Mohammad Mahdi Karimi',
     brandRole: 'Back-end, DevOps & WordPress Developer',
     navAbout: 'About',
     navExperience: 'Experience',
@@ -150,7 +150,7 @@ const translations = {
     navEducation: 'Education',
     exportPdf: 'Export PDF',
     eyebrow: 'BACK-END · DEVOPS · WORDPRESS',
-    name: 'Mohammad Mehdi Karimi',
+    name: 'Mohammad Mahdi Karimi',
     title: 'Back-end, DevOps & WordPress Developer',
     heroSummary: 'Software developer focused on back-end engineering, web-service delivery and maintenance, and WordPress solutions. I have worked with Python and PHP; Django, FastAPI, Flask, and Laravel; REST APIs; relational and NoSQL databases; Docker, Linux, and object storage. Alongside data-driven web applications, I contribute to the design and development of WordPress websites and WordPress/WooCommerce plugins.',
     locationLabel: 'Location',
@@ -293,12 +293,12 @@ const certificateData = {
   java: {
     src: 'assets/certificates/java-se-8.png',
     fa: { title: 'گواهی Java SE 8 Programming', alt: 'تصویر گواهی دوره Java SE 8 Programming محمد مهدی کریمی' },
-    en: { title: 'Java SE 8 Programming Certificate', alt: 'Java SE 8 Programming training certificate for Mohammad Mehdi Karimi' }
+    en: { title: 'Java SE 8 Programming Certificate', alt: 'Java SE 8 Programming training certificate for Mohammad Mahdi Karimi' }
   },
   network: {
     src: 'assets/certificates/network-plus.png',
     fa: { title: 'گواهی Network+', alt: 'تصویر گواهی دوره Network+ محمد مهدی کریمی' },
-    en: { title: 'Network+ Certificate', alt: 'Network+ training certificate for Mohammad Mehdi Karimi' }
+    en: { title: 'Network+ Certificate', alt: 'Network+ training certificate for Mohammad Mahdi Karimi' }
   }
 };
 
@@ -310,15 +310,15 @@ function setLanguage(language, persist = true) {
   html.dir = lang === 'fa' ? 'rtl' : 'ltr';
   document.title = lang === 'fa'
     ? 'محمد مهدی کریمی | رزومه'
-    : 'Mohammad Mehdi Karimi | Resume';
+    : 'Mohammad Mahdi Karimi | Resume';
 
   document.querySelector('meta[name="description"]').content = lang === 'fa'
     ? 'رزومه محمد مهدی کریمی، توسعه‌دهنده نرم‌افزار با تمرکز بر بک‌اند، DevOps و WordPress. تماس: 09009993232'
-    : 'Resume of Mohammad Mehdi Karimi, a software developer focused on back-end engineering, DevOps, and WordPress. Contact: +98 900 999 3232';
+    : 'Resume of Mohammad Mahdi Karimi, a software developer focused on back-end engineering, DevOps, and WordPress. Contact: +98 900 999 3232';
 
   const portraitAlt = lang === 'fa'
     ? 'تصویر پرسنلی محمد مهدی کریمی'
-    : 'Portrait of Mohammad Mehdi Karimi';
+    : 'Portrait of Mohammad Mahdi Karimi';
   profileImage.alt = portraitAlt;
   printProfileImage.alt = portraitAlt;
 
@@ -384,7 +384,7 @@ printButton.addEventListener('click', async () => {
   const lang = html.lang;
   const printTitle = lang === 'fa'
     ? 'رزومه محمد مهدی کریمی'
-    : 'Mohammad Mehdi Karimi - Resume';
+    : 'Mohammad Mahdi Karimi - Resume';
   let restored = false;
 
   const restore = () => {
