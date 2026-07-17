@@ -105,6 +105,8 @@ html[lang="en"] .lead { line-height: 1.78; }
 .timeline-body { min-width: 0; }
 .timeline-body h3 { margin: 0; color: var(--deep); font-size: 15px; line-height: 1.55; }
 .timeline-body .company { margin: 1px 0 7px; color: var(--teal-dark); font-size: 11px; font-weight: 800; }
+.timeline-body .company a { color: inherit; text-decoration: none; }
+.timeline-body .company a:hover { text-decoration: underline; }
 .timeline-body > p:not(.company) { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
 .achievement-list, .project-points { display: grid; gap: 3px; margin: 9px 0 11px; padding: 0; list-style: none; }
 .achievement-list li, .project-points li { position: relative; padding-inline-start: 14px; color: #455854; font-size: 11px; line-height: 1.75; }
@@ -267,6 +269,7 @@ html[lang="en"] .github-link { font-family: var(--font-en); }
   .print-item-heading h3 { margin: 0; color: #17332f; font-size: 10pt; line-height: 1.5; }
   .print-item-heading span { color: #52675f; font-size: 8pt; line-height: 1.55; text-align: end; }
   .print-item-heading b { color: #087f6b; }
+  .print-item-heading a { color: inherit; text-decoration: none; }
   .print-item p { margin: 1.2mm 0 0; color: #3d514b; line-height: 1.7; }
   .print-item ul { margin: 1.5mm 0 0; padding-inline-start: 4mm; color: #3d514b; line-height: 1.65; }
   .print-item li { padding-inline-start: .5mm; }
