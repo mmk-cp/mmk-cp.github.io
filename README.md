@@ -53,7 +53,7 @@ At Bijak, I work as a **Back-end, DevOps & WordPress Developer** across web prod
 
 For collaboration, a technical chat, or just a friendly hello:
 
-[Website](https://mmk-cp.ir/) · [Telegram](https://t.me/mmk_cp) · [Bale](https://ble.ir/mmk_cp) · [WhatsApp](https://wa.me/989009993232) · [Email](mailto:mail@mmk-cp.ir)
+[Website](https://mmk-cp.ir/) · [Telegram](https://t.me/mmk_cp) · [Bale](https://ble.ir/mmk_cp) · [Email](mailto:mail@mmk-cp.ir)
 
 <div align="center">
 
