@@ -1,69 +1,77 @@
-# Resume Changes — Engineering Portfolio Redesign
+# Resume Changes — Engineering Portfolio Redesign (Final Polish)
 
 ## Summary
 
-This release turns the site into a modern developer portfolio (English default) with a formal, separate PDF resume. The previous iteration already introduced a shared bilingual data model and dynamic print rendering; this iteration keeps that architecture and builds on it with: English-by-default routing, Jalali calendar dates for the Persian view/PDF, a fully redesigned web UI with tasteful motion, `Backend Developer` positioning (without `مهندس بک‌اند`), and the corrected year **2026** for the blog content agent.
+This is a final hardening pass that preserves the existing modern portfolio direction while making it production-ready for crawlers, no-JS users, and recruiters. The visual identity, English-first branding (`Backend Developer · DevOps · Agentic AI`), Jalali date system, and animated interactions were kept; the changes focus on crawler visibility, static pre-rendering, contact hierarchy, PDF refinement, and multilingual SEO correctness. No invented metrics or full redesign was performed.
 
-## Positioning & Content
+## What changed in this pass
 
-- Default identity is now **Backend Developer · DevOps · Agentic AI** (EN) / **توسعه‌دهنده بک‌اند · DevOps · Agentic AI** (FA). The word `مهندس` is no longer used as a personal job title in Persian; existing institutional titles in job history were preserved as factual where present, but branding copy was revised.
-- Hero redesigned as the primary brand statement: large name with gradient accent, role line, a pill-style tech-line badge row (`Python · FastAPI · Django · Docker · Linux · LLM Systems`), a concise high-signal summary, contact actions, and a floating identity card. The data source is `resume-data.js` → `profile.heroSummary` / `profile.techLine`.
-- About/summary and experience bullets remain evidence-based (Context → Work → framing) without invented metrics.
-- **Year correction:** `AI Agent for Blog Content Production` is now `year: 2026` in `resume-data.js` and renders as `2026` (EN) / `۱۴۰۵` (FA, via `jalali.js` mid-year mapping) in all web, print, and metadata contexts. The adjacent address-validation agent remains `2025`.
-- VoIP experience (`Asterisk`, `Issabel`, `SIP`) stays modestly in the *DevOps & Infrastructure* skill group only — no dedicated telecom section.
+### Availability wording
+- Replaced the inflexible `Engagement: Project-based` / `نوع همکاری: پروژه‌ای` with `Availability: Open to collaboration` / `وضعیت همکاری: آماده همکاری` in both languages. The source of truth moved from `uiStrings.workType` in `script.js` to `resumeData.profile.availability` in intent, and the hero's quick-facts now communicate openness to employment, remote work, and collaborations without discouraging any opportunity type.
 
-## Data Architecture
+### Contact hierarchy
+- **Hero:** Primary CTA is now Email (light button) + GitHub (ghost button) — the two internationally recognized professional channels. Telegram moved to a compact secondary link row (`hero-link-secondary`) and Bale to a tertiary low-weight link (`hero-link-tertiary`). This keeps the hero clean, avoids five equal-weight buttons, and preserves Bale for the Persian audience without letting it compete with Email/GitHub in English.
+- **Identity card:** Kept as a secondary contact surface (Email / Telegram / Bale) — no change to its presence, only the hero hierarchy was tightened.
+- **Footer & PDF:** Both keep Email + GitHub + website as primary; Telegram/Bale remain secondary/tertiary. The PDF header was updated to `Email · github.com/mmk-cp · mmk-cp.ir · location` so GitHub is now prominent in the formal resume.
 
-- `resume-data.js` is the single source. Dates moved from display strings (`date: { fa, en }`) to ISO ranges: `startDate: "2025-07"`, `endDate: null | "YYYY-MM"`, and `year: 2026` for year-only projects. Education similarly now uses `startDate`/`endDate`.
-- New file `jalali.js` provides `gregorianToJalali`, `formatRange(lang, start, end)`, and `formatProjectYear(lang, year)`. Persian ranges like `تیر ۱۴۰۴ تا اکنون` and English ranges like `Jul 2025 — Present` are derived from the same ISO values.
-- `script.js` consumes these helpers (`formatDateLabel`, `projectYearLabel`) in `renderExperience`, `renderEducation`, `renderProjects`, and `renderPrint`, so no date string is duplicated between display, data, and PDF.
+### Static rendering & crawler visibility (critical)
+- **Problem:** All core resume sections were empty in the initial HTML (`<p id="aboutText"></p>`, `<div id="experienceTimeline"></div>`, etc.) and injected only by `script.js`. Crawlers, text extractors, and no-JS users saw only the shell.
+- **Solution:** Added a build-time pre-renderer `scripts/build.js` that reads `resume-data.js` + `jalali.js` and injects real HTML into the template. The build writes:
+  - `index.html` — English pre-rendered (default `/`, canonical `https://mmk-cp.ir/`)
+  - `en/index.html` — English copy (canonical `https://mmk-cp.ir/en/`, assets via `../`)
+  - `fa/index.html` — Persian pre-rendered (canonical `https://mmk-cp.ir/fa/`, Jalali dates)
+  - `index.template.html` — clean English template (empty containers) preserved for future builds
+- After the build, `index.html`, `en/index.html`, and `fa/index.html` each contain the full resume (name, summary, all experience with dates, all featured projects with descriptions and years, skills including every `Asterisk`/`Issabel`/`SIP` token, education, certificates, languages) as selectable HTML — no duplication of data, no keyword stuffing, just the same content that the hydrated UI shows.
+- **No-JS fallback:** A `<noscript>` block now explains the static view and links to the other language, plus `reveal` is forced visible via `<noscript><style>.reveal{opacity:1!important}`. The page remains fully readable with JS disabled; only animations, language switching animation, and the PDF button require JS.
+- **Hydration:** `script.js` still hydrates on top of the pre-rendered content. On `setLanguage` it re-renders the sections from the same `resumeData`, so switching languages works and refreshing preserves the selected language via `history.replaceState` + `localStorage`.
 
-## Routing & Default Language
+### Dates
+- No change to the date logic itself — `jalali.js` continues to provide `formatRange` / `formatProjectYear`. The build now uses it at pre-render time, so the Persian static HTML already contains `تیر ۱۴۰۴ تا اکنون` / `۱۴۰۵` for the 2026 agent, while English contains `Jul 2025 — Present` / `2026`. The PDF uses the same path at print time.
 
-- `https://mmk-cp.ir/` opens in **English** (`html lang="en" dir="ltr"` in the document default, `og:locale en_US` as primary, `x-default` → `/`).
-- `https://mmk-cp.ir/#fa` opens the Persian view; `https://mmk-cp.ir/#en` opens English. Switching updates `history.replaceState` and `localStorage` (`resume-language`), and `hashchange` supports back/forward.
-- `resolveInitialLanguage()` now defaults to `'en'` (hash → storage → English), per spec.
+### SEO & multilingual
+- **Canonical/hreflang:** Root canonical is `https://mmk-cp.ir/` (English), `en/` and `fa/` have their own canonicals. All three advertise `hreflang en/fa/x-default` pointing to the real directory URLs (`/en/`, `/fa/`), and `x-default` points to the English default `/`.
+- **Sitemap:** Added `sitemap.xml` listing `/`, `/en/`, `/fa/` with `xhtml:link` alternates.
+- **Structured data:** Expanded `Person` to a `@graph` with `Person` (now including `image` and extended `knowsAbout` with `Asterisk`/`SIP`/`Tool Calling`), `WebSite` (`inLanguage ["en","fa"]`), and `ProfilePage` (`inLanguage` per build). The build patches `jobTitle` and `inLanguage` per language.
+- **Title/metadata audit:** Confirmed no stale `Backend · DevOps · WordPress` pillar remains in hero/meta; all `WordPress` mentions are now only in legitimate work history or skills. Meta descriptions are per-language originals, not machine translations.
+- **`og:image`:** Kept `assets/img/profile.png`; title now correctly reflects `Backend Developer · DevOps · Agentic AI`.
 
-## Web UI Redesign
+### VoIP / Agentic AI crawler visibility
+- Both `Asterisk` / `Issabel` / `SIP` (in the `DevOps & Infrastructure` skill list) and the Agentic AI vocabulary (`LangGraph`, `LLM`, `Tool Calling`, `Human-in-the-loop`, `Stateful Workflow`) are now in the pre-rendered static HTML for both languages, not only in JS-injected detail panels. `knowsAbout` also contains `Asterisk`/`SIP`.
 
-- Color system unchanged (deep teal / coral), but hero now has a mesh: subtle grid (`hero-grid`), three blurred gradient orbs with `driftA/B` keyframes, and a card glow (`identity-card-glow`, `brand-mark-glow`).
-- Topbar: glass + backdrop blur; active desktop-nav link gets an animated coral underline and `is-active` class via scroll-spy (`IntersectionObserver` on sections, refreshed on language change).
-- Reveal: every `.reveal` section fades/slides in via `IntersectionObserver`; hero is visible immediately; strength cards stagger (`cardIn`). All disabled under `prefers-reduced-motion`.
-- Timeline: styled line + cardized entries (`timeline-body` with hover border + shadow). Previous `timeline-marker` pulse kept; animated progress fill scaffold present.
-- Project cards: top accent line, border and shadow lift on hover, a pill flow diagram (`agent-flow`) with sequential `nudge` arrow animations (mirrored for RTL), and case studies via native `<details>` with hover feedback.
-- Skills: pill layout with hover lift; VoIP and OCR groups include their items inline with no inflated visual weight.
-- Repo/earlier/education/certificate cards gain subtle hover states.
-- Mobile: a hamburger toggle (`nav-toggle`) and a slide-down `mobile-drawer` complement the always-visible `mobile-nav` scroller. `JetBrains Mono` added to the font stack for code-like labels.
-- No heavy animation library, no particle system, no continuous parallax — motion is limited to fades, micro-lifts, and the two hero-orbs at low opacity.
+### PDF
+- Header contact order changed to Email → GitHub → website → location per the requested hierarchy.
+- Dates remain language-correct (Gregorian EN / Jalali FA) via the shared `formatRange` path, including `2026` / `۱۴۰۵` for the blog-content agent.
+- No web-only UI (orbs, grid, drawer, language switcher, animations) leaks into `@media print`; `break-inside: avoid` and A4 margins are preserved, text stays selectable, and links remain clickable.
 
-## PDF / Print
-
-- PDF shares data, not presentation. The web may be colorful and interactive; the print path is plain: no orbs, no grids, no drawer, no language switcher, no case-study expansion chrome — just content.
-- `renderPrint(lang)` emits a clean A4 document: header, about, categorized skills, experience, featured + secondary projects (with `-->`-joined flow lines as text), open-source list, and the education/certificates/languages strip. Dates inside the PDF are language-correct (Gregorian EN / Jalali FA) because the same `formatRange` path is reused.
-- Print CSS (`@page A4`, `break-inside: avoid`, suppressed nav/drawer/animations) was reviewed and kept.
-
-## SEO & i18n
-
-- Canonical stays `https://mmk-cp.ir/`; `hreflang en/fa/x-default` (with `#en`/`#fa` fragments noted) remain. Meta description, `og:*`, `twitter:*`, and JSON-LD `Person.jobTitle` are synchronized with the new positioning and language default, with English as the `x-default` entry point.
-- Mixed-direction text: tech names, URLs, flow steps, and `dir="ltr"` fragments stay legible inside Persian `dir="rtl"`.
+## Positioning & content (unchanged)
+- Primary identity stays `Backend Developer · DevOps · Agentic AI` / `توسعه‌دهنده بک‌اند · DevOps · Agentic AI`; `مهندس بک‌اند` is not used as a personal title. WordPress/WooCommerce remain secondary. `AI Agent for Blog Content Production` remains `year: 2026` (EN `2026`, FA `۱۴۰۵`) everywhere.
 
 ## How to maintain
 
-- **Add an experience entry:** push into `resumeData.experience.primary` or `.earlier` in `resume-data.js` using `startDate`/`endDate` (ISO `YYYY-MM`, `null` for ongoing) and `{ fa, en }` leaves; Jalali rendering is automatic.
-- **Add a project:** push into `featuredProjects` with `year` (integer), `kind`, `title/summary/points/tags`, optional `flow` (string array) and `caseStudy`. Single-year display uses `formatProjectYear`.
-- **Update dates:** edit only the ISO value in `resume-data.js`; both web and both PDFs update together.
-- **Translate a new field:** add both `fa` and `en` leaves side-by-side in the same object.
-- **PDF vs. web:** edit `renderPrint` in `script.js` to change the formal resume ordering/presentation without touching the interactive portfolio.
+- **Edit content:** Change only `resume-data.js` (or its `{fa,en}` leaves). Jalali conversion is automatic.
+- **Pre-render after edits:** Run `node scripts/build.js` — it reads `index.template.html` + data and regenerates `index.html`, `en/index.html`, `fa/index.html` with correct hreflang/canonical/asset paths. Do not hand-edit the built `index.html` content blocks; edit the template or the data.
+- **Add an experience/project:** Push into `resumeData.experience.*` or `featuredProjects` using `startDate`/`endDate` (ISO `YYYY-MM`, `null` for ongoing) and integer `year`; year display uses `formatProjectYear`.
+- **Translate:** Add both `fa` and `en` leaves side-by-side in the same object.
+- **PDF vs. web:** Edit `renderPrint` in `script.js` to change formal resume ordering/presentation without touching the interactive portfolio.
 
 ## Files
 
-- `jalali.js` — new (Gregorian ↔ Jalali conversion and localized date formatting)
-- `resume-data.js` — updated (ISO dates, year 2026, Developer titles)
-- `index.html` — redesigned (English default, new hero with orbs/grid, nav toggle + drawer, mono font, SEO alignment)
-- `styles.css` — redesigned (hero orbs/grid, reveal, nav active state, card lift, flow nudge, drawer, responsive updates)
-- `script.js` — updated (English default, Jalali wiring, scroll-spy, reveal observer, mobile drawer)
-- `404.html` — updated (English-first bilingual copy, Developer branding)
-- `manifest.webmanifest` — theme aligned
-- `RESUME_TODO.md` — resolved items moved to a Confirmed section
+- `scripts/build.js` — new (build-time pre-renderer for EN/FA static HTML)
+- `index.template.html` — new (clean English template with empty containers, kept for builds)
+- `index.html` — now pre-rendered English (crawler-visible), previously a JS shell
+- `en/index.html` — new (English canonical copy)
+- `fa/index.html` — new (Persian pre-rendered, Jalali dates)
+- `sitemap.xml` — new
+- `resume-data.js` — `profile.availability` wording updated (`Open to collaboration` / `آماده همکاری`)
+- `script.js` — `uiStrings` availability labels + PDF header GitHub prioritization + existing hydration intact
+- `index.template.html` — JSON-LD expanded to `@graph` (Person + WebSite + ProfilePage)
+- `styles.css` — hero secondary/tertiary link styles + `[hidden]` fix + drawer backdrop (from prior polish, preserved)
+- `404.html` — English-first bilingual copy (preserved)
+- `RESUME_TODO.md` — confirmed section kept
 - `RESUME_CHANGES.md` — this file
-- `README.md` — year table updated
+- `README.md` — year table already updated to 2026
+
+## Build & validation
+
+- `node scripts/build.js` — regenerates all three HTML outputs and validates `2026`, `Asterisk`, Jalali/Gregorian dates in the static files.
+- Manual checks recommended: open `/` in English, `/#fa` or `/fa/` in Persian, disable JS and confirm all sections remain readable, print preview in both languages, and responsive at mobile widths.

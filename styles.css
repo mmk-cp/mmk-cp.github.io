@@ -113,6 +113,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-summary { max-width: 700px; margin: 20px 0 0; color: #b9d3cb; font-size: 15px; line-height: 1.9; }
 html[lang="en"] .hero-summary { color: #c2d7d0; line-height: 1.75; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hero-actions-primary { margin-top: 28px; }
+.hero-actions-secondary { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.hero-link-secondary { display: inline-flex; align-items: center; gap: 6px; color: #b9d3cb; font: 600 11px var(--font-mono); text-decoration: none; opacity: .9; transition: color .15s ease, opacity .15s ease; }
+.hero-link-secondary svg { width: 13px; height: 13px; fill: currentColor; opacity: .85; }
+.hero-link-secondary:hover { color: #fff; opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.hero-link-tertiary { color: #8fbdb0; font: 500 10px var(--font-mono); text-decoration: none; opacity: .75; transition: color .15s ease, opacity .15s ease; }
+.hero-link-tertiary:hover { color: #cfe8df; opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 .quick-facts { max-width: 700px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 30px 0 0; padding: 16px 0 0; border-top: 1px solid rgba(255,255,255,.12); }
 .quick-facts div { min-width: 0; padding-inline: 16px; }
 .quick-facts div:first-child { padding-inline-start: 0; }

@@ -20,8 +20,8 @@ const uiStrings = {
     location: 'تهران، ایران',
     focusLabel: 'تمرکز اصلی',
     focus: 'بک‌اند · DevOps · Agentic AI',
-    workTypeLabel: 'نوع همکاری',
-    workType: 'پروژه‌ای',
+    workTypeLabel: 'وضعیت همکاری',
+    workType: 'آماده همکاری',
     profileCardTitle: 'اطلاعات تماس',
     available: 'در دسترس',
     telegram: 'تلگرام',
@@ -75,8 +75,8 @@ const uiStrings = {
     location: 'Tehran, Iran',
     focusLabel: 'Primary focus',
     focus: 'Backend · DevOps · Agentic AI',
-    workTypeLabel: 'Engagement',
-    workType: 'Project-based',
+    workTypeLabel: 'Availability',
+    workType: 'Open to collaboration',
     profileCardTitle: 'Contact details',
     available: 'Available',
     telegram: 'Telegram',
@@ -376,8 +376,8 @@ function renderPrint(lang) {
     + '<p class="print-role">' + title + '</p>'
     + '<p class="print-techline" dir="ltr">' + esc(p.techLine) + '</p>'
     + '<p class="print-contact"><a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a>'
+    + '<span aria-hidden="true"> · </span><a href="https://github.com/mmk-cp" target="_blank" rel="noopener noreferrer">github.com/mmk-cp</a>'
     + '<span aria-hidden="true"> · </span><a href="' + esc(p.website) + '" target="_blank" rel="noopener noreferrer">' + esc(p.website.replace('https://', '')) + '</a>'
-    + '<span aria-hidden="true"> · </span><span class="print-messenger"><span>' + esc(t(lang, 'messenger')) + '</span> <b dir="ltr">@mmk_cp</b></span>'
     + '<span aria-hidden="true"> · </span><span>' + loc + '</span></p>'
     + '</div>'
     + '<img class="print-photo" src="assets/img/profile.png" width="300" height="300" alt="' + (isEn ? 'Portrait of Mohammad Mahdi Karimi' : 'تصویر پرسنلی محمد مهدی کریمی') + '" decoding="sync">'

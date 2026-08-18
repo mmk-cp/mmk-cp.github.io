@@ -16,7 +16,7 @@ const resumeData = {
     },
     location: { fa: 'تهران، ایران', en: 'Tehran, Iran' },
     focus: { fa: 'بک‌اند · DevOps · Agentic AI', en: 'Backend · DevOps · Agentic AI' },
-    workType: { fa: 'پروژه‌ای', en: 'Project-based' },
+    availability: { fa: 'آماده همکاری', en: 'Open to collaboration' },
     email: 'mail@mmk-cp.ir',
     website: 'https://mmk-cp.ir',
     github: 'https://github.com/mmk-cp',
