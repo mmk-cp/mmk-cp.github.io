@@ -26,8 +26,8 @@ const resumeData = {
 
   about: {
     text: {
-      fa: 'توسعه‌دهنده نرم‌افزار با تجربه در طراحی و نگه‌داری سرویس‌های بک‌اند، APIهای REST و وب‌اپلیکیشن‌های داده‌محور با Python، PHP، Django، FastAPI، Flask و Laravel. در پروژه‌های Agentic AI با OpenAI، LangChain و LangGraph گردش‌کارهای چندمرحله‌ای دارای human-in-the-loop، فراخوانی ابزار و اتصال به APIهای بیرونی پیاده‌سازی کرده‌ام. در حوزهٔ زیرساخت با Docker، Linux و Git محیط اجرا را آماده می‌کنم و سرویس‌ها را در چرخهٔ تحویل نگه می‌دارم؛ توسعهٔ سایت و افزونه‌های WordPress و WooCommerce نیز به‌عنوان تجربهٔ مکمل در کنار کار اصلی بک‌اند قرار دارد. در تحویل پروژه بر حل دقیق مسئله، معماری قابل نگه‌داری و مستندسازی روشن تمرکز دارم.',
-      en: 'Software developer focused on designing and maintaining backend services, REST APIs, and data-driven web applications with Python, PHP, Django, FastAPI, Flask, and Laravel. In Agentic AI projects I have used OpenAI, LangChain, and LangGraph to implement multi-step workflows with human-in-the-loop controls, tool calling, and external API integrations. On the infrastructure side I work with Docker, Linux, and Git to prepare runtime environments and keep services running through the delivery cycle, while WordPress and WooCommerce site and plugin development sits alongside the core backend work as complementary experience. I focus on precise problem solving, maintainable architecture, and clear documentation.'
+      fa: 'توسعه‌دهنده بک‌اند با تجربه در طراحی و نگه‌داری سرویس‌های production، APIهای REST و وب‌اپلیکیشن‌های داده‌محور با Python و PHP. با FastAPI، Django، Flask و Laravel سرویس‌ها را توسعه داده‌ام و در سامانه‌های Agentic AI با OpenAI، LangChain و LangGraph گردش‌کارهای چندمرحله‌ای همراه با human-in-the-loop و فراخوانی ابزار پیاده‌سازی کرده‌ام. محیط اجرا را با Docker و Linux آماده می‌کنم و افزونه‌ها و یکپارچه‌سازی‌های WordPress/WooCommerce را به‌عنوان تجربهٔ مکمل کنار کار اصلی بک‌اند انجام می‌دهم.',
+      en: 'Backend developer focused on building and maintaining production services, REST APIs, and data-driven web applications with Python and PHP. I work with FastAPI, Django, Flask, and Laravel, implement Agentic AI workflows with OpenAI, LangChain, and LangGraph — including human-in-the-loop controls and tool calling — and run services with Docker and Linux. WordPress/WooCommerce plugin development and integrations sit alongside the core backend work as complementary experience.'
     },
     strengths: [
       {
@@ -57,20 +57,21 @@ const resumeData = {
     primary: [
       {
         id: 'bijak',
-        title: { fa: 'توسعه‌دهنده بک‌اند، DevOps و Agentic AI', en: 'Backend Developer · DevOps · Agentic AI' },
+        title: { fa: 'توسعه‌دهنده بک‌اند · DevOps', en: 'Backend Developer · DevOps' },
         company: { fa: 'بیجک', en: 'Bijak' },
         companyUrl: 'https://bijak.ir/',
         location: { fa: 'تهران', en: 'Tehran' },
         startDate: '2025-07',
         endDate: null,
         summary: {
-          fa: 'همکاری در توسعه و نگه‌داری محصولات بیجک؛ شامل سرویس‌های بک‌اند Python، مسئولیت‌های DevOps و پیاده‌سازی سامانه‌های Agentic AI، و طراحی و توسعهٔ وب‌سایت و افزونه‌های WordPress/WooCommerce شرکت.',
-          en: 'Contributing to Bijak products across Python backend services, DevOps responsibilities, Agentic AI systems, and the design and development of the company website and WordPress/WooCommerce plugins.'
+          fa: 'فعالیت در محصولات بیجک در حوزه سرویس‌های بک‌اند Python و مسئولیت‌های DevOps، همراه با همکاری در سامانه‌های Agentic AI و توسعه وب‌سایت و افزونه‌های WordPress/WooCommerce شرکت.',
+          en: 'Working on Bijak products across Python backend services and DevOps responsibilities, with additional work on Agentic AI systems and the company website and WordPress/WooCommerce plugins.'
         },
         bullets: [
           { fa: 'توسعه و نگه‌داری سرویس‌ها و APIهای بک‌اند محصولات با Python، FastAPI و Django در محیط production.', en: 'Developing and maintaining product backend services and APIs with Python, FastAPI, and Django in production.' },
-          { fa: 'پشتیبانی از نیازهای DevOps پروژه با Docker، Linux، Git و ابزارهای مرتبط با کانتینرسازی و اجرای سرویس‌ها.', en: 'Supporting project DevOps needs with Docker, Linux, Git, and tooling for containerization and service runtime.' },
-          { fa: 'طراحی و توسعهٔ وب‌سایت شرکت و افزونه‌های WordPress/WooCommerce با یکپارچه‌سازی سرویس‌های داخلی و خارجی.', en: 'Designing and developing the company website and WordPress/WooCommerce plugins integrated with internal and external services.' }
+          { fa: 'انجام مسئولیت‌های DevOps شامل کار با Docker، Linux و Git، آماده‌سازی محیط‌های کانتینری، پیکربندی‌های مرتبط با استقرار و نگه‌داری/عیب‌یابی سرویس‌ها.', en: 'Handling DevOps responsibilities across Docker, Linux, and Git, including containerized runtime environments, deployment-related configuration, and service operation and troubleshooting.' },
+          { fa: 'همکاری در توسعه سامانه‌ها و گردش‌کارهای Agentic AI مبتنی بر LLM، شامل ارکستراسیون مدل، فراخوانی ابزار، اتصال به APIهای بیرونی و مراحل کنترل‌شده توسط انسان.', en: 'Contributing to Agentic AI systems and LLM-based workflows, including model orchestration, tool calling, external API integration, and human-controlled workflow stages.' },
+          { fa: 'طراحی و توسعه وب‌سایت شرکت و افزونه‌های WordPress/WooCommerce با یکپارچه‌سازی سرویس‌های داخلی و خارجی.', en: 'Designing and developing the company website and WordPress/WooCommerce plugins integrated with internal and external services.' }
         ],
         tags: ['FastAPI', 'Django', 'Python', 'Docker', 'Linux', 'Git', 'WordPress', 'WooCommerce', 'PHP']
       },
@@ -82,15 +83,14 @@ const resumeData = {
         startDate: '2023-12',
         endDate: '2025-06',
         summary: {
-          fa: 'توسعهٔ سامانه‌های داده‌محور از جمله گردش مکاتبات و دفترچه تلفن سازمانی، با Flask و Python و کار با MongoDB، MySQL و SQL Server برای داده‌های حجیم.',
+          fa: 'توسعه سامانه‌های داده‌محور از جمله گردش مکاتبات و دفترچه تلفن سازمانی، با Flask و Python و کار با MongoDB، MySQL و SQL Server برای داده‌های پرحجم.',
           en: 'Built data-driven systems including a correspondence workflow and an organizational phonebook, using Flask and Python with MongoDB, MySQL, and SQL Server for high-volume data.'
         },
         bullets: [
-          { fa: 'پیاده‌سازی سرویس‌ها و قابلیت‌های وب با Flask و Python برای سامانه‌های داده‌محور؛ از ثبت و پیگیری مکاتبات تا مدیریت مجموعهٔ بزرگ مخاطبان.', en: 'Implemented web services and features with Flask and Python for data-driven systems, from correspondence tracking to large contact-dataset management.' },
-          { fa: 'کار با MongoDB، MySQL و SQL Server برای ذخیره‌سازی، جست‌وجو و مدیریت داده در سناریوهای پرحجم.', en: 'Worked with MongoDB, MySQL, and SQL Server for storage, search, and data management in high-volume scenarios.' },
-          { fa: 'مشارکت در طراحی راهکارهای قابل اجرا برای مجموعه‌های بزرگ داده و سناریوهای نزدیک به Big Data.', en: 'Contributed to practical solutions designed for large datasets and Big Data-adjacent scenarios.' }
+          { fa: 'پیاده‌سازی سرویس‌ها و قابلیت‌های وب با Flask و Python برای سامانه‌های داده‌محور؛ از ثبت و پیگیری مکاتبات تا مدیریت مجموعه بزرگ مخاطبان.', en: 'Implemented web services and features with Flask and Python for data-driven systems, from correspondence tracking to large contact-dataset management.' },
+          { fa: 'کار با MongoDB، MySQL و SQL Server برای ذخیره‌سازی، جست‌وجو و مدیریت داده در سناریوهای پرحجم.', en: 'Worked with MongoDB, MySQL, and SQL Server for storage, search, and data management in high-volume scenarios.' }
         ],
-        tags: ['Flask', 'Python', 'MongoDB', 'MySQL', 'SQL Server', 'Big Data']
+        tags: ['Flask', 'Python', 'MongoDB', 'MySQL', 'SQL Server']
       },
       {
         id: 'pol-darman',
@@ -100,12 +100,12 @@ const resumeData = {
         startDate: '2023-04',
         endDate: '2023-12',
         summary: {
-          fa: 'توسعهٔ سرویس‌های وب و رابط‌های کاربردی با Laravel، PHP، JavaScript و MySQL.',
-          en: 'Developed web services and user-facing features with Laravel, PHP, JavaScript, and MySQL.'
+          fa: 'همکاری در توسعه سرویس‌های تحت وب مبتنی بر Laravel برای نیازهای محصول.',
+          en: 'Contributed to Laravel-based web services and product features.'
         },
         bullets: [
-          { fa: 'توسعهٔ سرویس‌های وب و قابلیت‌های کاربری با Laravel، PHP، JavaScript و MySQL.', en: 'Built web services and user-facing features with Laravel, PHP, JavaScript, and MySQL.' },
-          { fa: 'مشارکت در پیاده‌سازی رابط با Bootstrap 5 و آماده‌سازی تجربهٔ PWA در بخش‌هایی از پروژه.', en: 'Contributed to interface implementation with Bootstrap 5 and PWA-oriented parts of the project.' }
+          { fa: 'پیاده‌سازی منطق سرویس و قابلیت‌های کاربری با Laravel، PHP، JavaScript و MySQL.', en: 'Implemented service logic and user-facing features with Laravel, PHP, JavaScript, and MySQL.' },
+          { fa: 'مشارکت در پیاده‌سازی رابط با Bootstrap 5 و آماده‌سازی تجربه PWA در بخش‌هایی از پروژه.', en: 'Contributed to interface implementation with Bootstrap 5 and PWA-oriented parts of the project.' }
         ],
         tags: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap 5', 'PWA']
       }
@@ -285,8 +285,8 @@ const resumeData = {
   },
 
   certificates: [
-    { id: 'java', name: 'Java SE 8 Programming', issuer: { fa: 'مجتمع فنی تهران', en: 'Tehran Institute of Technology' }, duration: { fa: '۵۰ ساعت', en: '50 hours' }, issued: '2019/10/28', image: 'assets/certificates/java-se-8.png' },
-    { id: 'network', name: 'Network+', issuer: { fa: 'مجتمع فنی تهران', en: 'Tehran Institute of Technology' }, duration: { fa: '۳۰ ساعت', en: '30 hours' }, issued: '2019/09/29', image: 'assets/certificates/network-plus.png' }
+    { id: 'java', name: 'Java SE 8 Programming', issuer: { fa: 'مجتمع فنی تهران', en: 'Tehran Institute of Technology' }, duration: { fa: '۵۰ ساعت', en: '50 hours' }, issued: '2019-10-28', image: 'assets/certificates/java-se-8.png' },
+    { id: 'network', name: 'Network+', issuer: { fa: 'مجتمع فنی تهران', en: 'Tehran Institute of Technology' }, duration: { fa: '۳۰ ساعت', en: '30 hours' }, issued: '2019-09-29', image: 'assets/certificates/network-plus.png' }
   ],
 
   languages: [

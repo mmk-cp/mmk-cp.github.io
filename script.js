@@ -28,9 +28,9 @@ const uiStrings = {
     bale: 'بله',
     messenger: 'پیام‌رسان',
     aboutTitle: 'درباره من',
-    experienceTitle: 'سوابق شغلی',
-    earlierExperienceTitle: 'سابقهٔ پیشین — وب و WordPress',
-    projectsKicker: 'پروژه‌های Agentic AI، کاربردی و متن‌باز',
+    experienceTitle: 'سوابق کاری',
+    earlierExperienceTitle: 'سوابق پیشین — وب و WordPress',
+    projectsKicker: 'Agentic AI، پروژه‌های کاربردی و متن‌باز',
     projectsTitle: 'پروژه‌های منتخب',
     productionProject: 'پروژه کاربردی',
     agenticAIProject: 'پروژه Agentic AI',
@@ -41,19 +41,22 @@ const uiStrings = {
     caseStudyProblem: 'مسئله',
     caseStudyApproach: 'رویکرد',
     caseStudyDecisions: 'تصمیم‌های مهندسی',
-    caseStudyStack: 'Stack',
+    caseStudyStack: 'فناوری‌ها',
     skillsTitle: 'توانمندی‌های فنی',
     educationTitle: 'تحصیلات',
-    certificatesTitle: 'گواهی دوره‌ها',
+    certificatesTitle: 'گواهی‌ها و دوره‌ها',
     mft: 'مجتمع فنی تهران',
     score: 'نمره',
     duration: 'مدت',
     issued: 'صدور',
     viewCertificate: 'مشاهده گواهی',
-    languageTitle: 'زبان',
+    languageTitle: 'زبان‌ها',
     footerContact: 'تماس:',
     footerCopy: 'محمد مهدی کریمی — تهران',
     footerTerminalHint: 'آماده همکاری',
+    printAboutTitle: 'چکیده حرفه‌ای',
+    printCertificatesTitle: 'گواهی‌ها و دوره‌ها',
+    printLanguageTitle: 'زبان‌ها',
     printSkillsTitle: 'مهارت‌های کلیدی',
     softSkillsCompact: 'حل مسئله · کار تیمی و مسئولیت‌پذیری · مدیریت بحران · برنامه‌ریزی · پذیرش بازخورد'
   },
@@ -109,6 +112,9 @@ const uiStrings = {
     footerContact: 'Contact:',
     footerCopy: 'Mohammad Mahdi Karimi — Tehran',
     footerTerminalHint: 'open to collaboration',
+    printAboutTitle: 'Professional Summary',
+    printCertificatesTitle: 'Certifications & Training',
+    printLanguageTitle: 'Languages',
     printSkillsTitle: 'Key skills',
     softSkillsCompact: 'Problem solving · Teamwork · Crisis management · Planning · Receptive to feedback'
   }
@@ -341,11 +347,13 @@ function renderCertificates(lang) {
   var el = document.getElementById('certificatesContainer');
   if (!el) return;
   el.innerHTML = resumeData.certificates.map(function (c) {
+    var issuedLabel = formatDateLabel(lang, c.issued, null);
+    var issuedDir = lang === 'fa' ? '' : ' dir="ltr"';
     return '<article class="certificate-card">'
       + '<div><h3>' + esc(c.name) + '</h3>'
       + '<p>' + esc(rd(lang, c.issuer)) + '</p>'
       + '<dl><div><dt>' + esc(t(lang, 'duration')) + '</dt><dd>' + esc(rd(lang, c.duration)) + '</dd></div>'
-      + '<div><dt>' + esc(t(lang, 'issued')) + '</dt><dd dir="ltr">' + esc(c.issued) + '</dd></div></dl></div>'
+      + '<div><dt>' + esc(t(lang, 'issued')) + '</dt><dd' + issuedDir + '>' + esc(issuedLabel) + '</dd></div></dl></div>'
       + '<button class="text-button no-print" type="button" data-certificate="' + esc(c.id) + '">' + esc(t(lang, 'viewCertificate')) + '</button>'
       + '</article>';
   }).join('');
@@ -382,9 +390,9 @@ function renderPrint(lang) {
     + '</div>'
     + '<img class="print-photo" src="assets/img/profile.png" width="300" height="300" alt="' + (isEn ? 'Portrait of Mohammad Mahdi Karimi' : 'تصویر پرسنلی محمد مهدی کریمی') + '" decoding="sync">'
     + '</header>';
-  var printAbout = '<section class="print-section"><h2>' + esc(t(lang, 'aboutTitle')) + '</h2><p>' + aboutHtml + '</p></section>';
+  var printAbout = '<section class="print-section print-about"><h2>' + esc(t(lang, 'printAboutTitle')) + '</h2><p>' + aboutHtml + '</p></section>';
   var skillLines = resumeData.skills.map(function (g) {
-    return '<p><strong>' + esc(rd(lang, g.title)) + ':</strong> ' + esc(g.items.join(', ')) + '</p>';
+    return '<p><strong>' + esc(rd(lang, g.title)) + ':</strong> ' + esc(g.items.join(' · ')) + '</p>';
   }).join('');
   var printSkills = '<section class="print-section print-skills"><h2>' + esc(t(lang, 'printSkillsTitle')) + '</h2>' + skillLines + '</section>';
   var expItems = '';
@@ -420,10 +428,22 @@ function renderPrint(lang) {
         + '<p>' + esc(rd(lang, proj.summary)) + '</p></article>';
     });
   }
-  projItems += '<p class="print-github"><strong>' + esc(t(lang, 'openSourceTitle')) + ':</strong> <a href="https://github.com/mmk-cp">github.com/mmk-cp</a></p>';
+  var pdfRepos = resumeData.openSource.slice();
+  var isEnPrint = lang === 'en';
+  var pdfLimit = 5;
+  var selectedRepos = pdfRepos.slice(0, pdfLimit);
+  var repoDisplayMap = {
+    persianOcr: 'Persian Scanned Doc Orientation',
+    PersianScannedDocOrientationCorrection: 'Persian Scanned Doc Orientation'
+  };
+  var extraCount = pdfRepos.length - selectedRepos.length;
+  projItems += '<p class="print-github"><strong>' + esc(t(lang, 'openSourceTitle')) + ':</strong> <a href="https://github.com/mmk-cp">github.com/mmk-cp</a>'
+    + (extraCount > 0 ? ' <span class="print-more">+ ' + extraCount + ' ' + (isEnPrint ? 'more' : 'مورد بیشتر') + ' → github.com/mmk-cp</span>' : '')
+    + '</p>';
   projItems += '<ul class="print-repo-list">';
-  resumeData.openSource.forEach(function (r) {
-    projItems += '<li><a href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer" dir="ltr">' + esc(r.name) + '</a><span>' + esc(rd(lang, r.description)) + '</span></li>';
+  selectedRepos.forEach(function (r) {
+    var displayName = repoDisplayMap[r.name] || repoDisplayMap[r.id] || r.name;
+    projItems += '<li><a href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer" dir="ltr">' + esc(displayName) + '</a><span>' + esc(rd(lang, r.description)) + '</span></li>';
   });
   projItems += '</ul>';
   var printProjects = '<section class="print-section"><h2>' + esc(t(lang, 'projectsTitle')) + '</h2>' + projItems + '</section>';
@@ -433,8 +453,8 @@ function renderPrint(lang) {
   var eduLabel = esc(formatDateLabel(lang, edu.startDate, edu.endDate));
   var printFinal = '<section class="print-section print-final-section">'
     + '<div><h2>' + esc(t(lang, 'educationTitle')) + '</h2><p><strong>' + esc(rd(lang, edu.degree)) + '</strong> · ' + esc(rd(lang, edu.university)) + ' · ' + eduLabel + '</p></div>'
-    + '<div><h2>' + esc(t(lang, 'certificatesTitle')) + '</h2><p>' + esc(certLine) + '</p></div>'
-    + '<div><h2>' + esc(t(lang, 'languageTitle')) + '</h2><p>' + langLine + '</p></div>'
+    + '<div><h2>' + esc(t(lang, 'printCertificatesTitle')) + '</h2><p>' + esc(certLine) + '</p></div>'
+    + '<div><h2>' + esc(t(lang, 'printLanguageTitle')) + '</h2><p>' + langLine + '</p></div>'
     + '</section>';
   printResumeEl.innerHTML = printHeader + printAbout + printSkills + printExp + printProjects + printFinal;
 }

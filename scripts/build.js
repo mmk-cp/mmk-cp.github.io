@@ -56,14 +56,14 @@ const labels = {
   fa: {
     location: 'تهران، ایران', focus: 'بک‌اند · DevOps · Agentic AI',
     availability: 'آماده همکاری', aboutTitle: 'درباره من',
-    experienceTitle: 'سوابق شغلی', earlierTitle: 'سابقهٔ پیشین — وب و WordPress',
-    projectsKicker: 'پروژه‌های Agentic AI، کاربردی و متن‌باز', projectsTitle: 'پروژه‌های منتخب',
+    experienceTitle: 'سوابق کاری', earlierTitle: 'سوابق پیشین — وب و WordPress',
+    projectsKicker: 'Agentic AI، پروژه‌های کاربردی و متن‌باز', projectsTitle: 'پروژه‌های منتخب',
     agenticLabel: 'پروژه Agentic AI', productionLabel: 'پروژه کاربردی',
     secondaryTitle: 'سایر پروژه‌ها', openSourceTitle: 'پروژه‌های متن‌باز', allGithub: 'همه پروژه‌ها در GitHub',
-    caseStudyLabel: 'بررسی فنی', problem: 'مسئله', approach: 'رویکرد', decisions: 'تصمیم‌های مهندسی', stack: 'Stack',
-    skillsTitle: 'توانمندی‌های فنی', educationTitle: 'تحصیلات', certTitle: 'گواهی دوره‌ها',
+    caseStudyLabel: 'بررسی فنی', problem: 'مسئله', approach: 'رویکرد', decisions: 'تصمیم‌های مهندسی', stack: 'فناوری‌ها',
+    skillsTitle: 'توانمندی‌های فنی', educationTitle: 'تحصیلات', certTitle: 'گواهی‌ها و دوره‌ها',
     mft: 'مجتمع فنی تهران', duration: 'مدت', issued: 'صدور', viewCert: 'مشاهده گواهی',
-    langTitle: 'زبان', footerContact: 'تماس:', footerHint: 'آماده همکاری',
+    langTitle: 'زبان‌ها', footerContact: 'تماس:', footerHint: 'آماده همکاری',
   }
 };
 
@@ -141,7 +141,11 @@ function renderEducation(lang) {
   return `<article class="education-item"><div><h3>${esc(rd(lang, edu.degree))}</h3><p>${esc(rd(lang, edu.university))}</p><time datetime="${esc(edu.startDate||'')}">${date}</time></div></article>`;
 }
 function renderCertificates(lang) {
-  return resumeData.certificates.map(c => `<article class="certificate-card"><div><h3>${esc(c.name)}</h3><p>${esc(rd(lang, c.issuer))}</p><dl><div><dt>${esc(labels[lang].duration)}</dt><dd>${esc(rd(lang, c.duration))}</dd></div><div><dt>${esc(labels[lang].issued)}</dt><dd dir="ltr">${esc(c.issued)}</dd></div></dl></div><button class="text-button no-print" type="button" data-certificate="${esc(c.id)}">${esc(labels[lang].viewCert)}</button></article>`).join('');
+  return resumeData.certificates.map(function(c) {
+    var single = lang === 'fa' ? jalaliCtx.formatDateFa(c.issued) : jalaliCtx.formatDateEn(c.issued);
+    var dirAttr = lang === 'fa' ? '' : ' dir="ltr"';
+    return `<article class="certificate-card"><div><h3>${esc(c.name)}</h3><p>${esc(rd(lang, c.issuer))}</p><dl><div><dt>${esc(labels[lang].duration)}</dt><dd>${esc(rd(lang, c.duration))}</dd></div><div><dt>${esc(labels[lang].issued)}</dt><dd${dirAttr}>${esc(single)}</dd></div></dl></div><button class="text-button no-print" type="button" data-certificate="${esc(c.id)}">${esc(labels[lang].viewCert)}</button></article>`;
+  }).join('');
 }
 function renderLanguages(lang) {
   return resumeData.languages.map(l => `<div class="language-item"><div><strong>${esc(rd(lang, l.name))}</strong><span>${esc(rd(lang, l.level))}</span></div></div>`).join('');
@@ -220,6 +224,56 @@ function buildForLang(lang) {
     /<dt data-i18n="workTypeLabel">[^<]*<\/dt>/,
     `<dt data-i18n="workTypeLabel">${esc(lang==='fa' ? 'وضعیت همکاری' : 'Availability')}</dt>`
   );
+
+  // Localize dialog heading
+  (function(){
+    var dh = lang==='fa' ? 'گواهی' : 'Certificate';
+    html = html.replace(/<h2 id="certificateDialogTitle">[^<]*<\/h2>/, '<h2 id="certificateDialogTitle">' + esc(dh) + '</h2>');
+  })();
+  // Localize section headings for static HTML (fix #8)
+  (function(){
+    var h = {
+      aboutTitle: labels[lang].aboutTitle,
+      experienceTitle: labels[lang].experienceTitle,
+      projectsTitle: labels[lang].projectsTitle,
+      projectsKicker: labels[lang].projectsKicker,
+      openSourceTitle: labels[lang].openSourceTitle,
+      allGithubProjects: labels[lang].allGithub,
+      skillsTitle: labels[lang].skillsTitle,
+      educationTitle: labels[lang].educationTitle,
+      certificatesTitle: labels[lang].certTitle,
+      languageTitle: labels[lang].langTitle
+    };
+    for (var k in h) {
+      var re = new RegExp('<([^>]*data-i18n="' + k + '"[^>]*)>[^<]*</', 'g');
+      html = html.replace(re, '<$1>' + esc(h[k]) + '</');
+    }
+    // Additional quick-facts/profile labels that were missed (keep technical heroRole/eyebrow as-is)
+    (function(){
+      var extra = {
+        locationLabel: lang==='fa'?'موقعیت':'Location',
+        location: labels[lang].location,
+        focusLabel: lang==='fa'?'تمرکز اصلی':'Primary focus',
+        focus: labels[lang].focus,
+        profileCardTitle: lang==='fa'?'اطلاعات تماس':'Contact details',
+        skip: lang==='fa'?'پرش به محتوای اصلی':'Skip to main content'
+      };
+      for (var ek in extra) {
+        var er = new RegExp('(<[^>]*data-i18n="' + ek + '"[^>]*>)[^<]*(</)', 'g');
+        html = html.replace(er, '$1' + esc(extra[ek]) + '$2');
+      }
+      // availability-label standalone span
+      html = html.replace(/<span class="availability-label">[^<]*<\/span>/, '<span class="availability-label">' + esc(lang==='fa'?'در دسترس':'Available') + '</span>');
+    })();
+    // earlier heading
+    html = html.replace(/<h3 class="earlier-heading">[^<]*<\/h3>/, '<h3 class="earlier-heading">' + esc(labels[lang].earlierTitle) + '</h3>');
+    // nav labels
+    var navMap = {navAbout: lang==='fa'?'درباره من':'About', navExperience: lang==='fa'?'سوابق':'Experience', navProjects: lang==='fa'?'پروژه‌ها':'Projects', navSkills: lang==='fa'?'مهارت‌ها':'Skills', navContact: lang==='fa'?'تماس':'Contact'};
+    for (var nk in navMap) {
+      var nr = new RegExp('(<[^>]*data-i18n="' + nk + '"[^>]*>)[^<]*(</)', 'g');
+      html = html.replace(nr, '$1' + esc(navMap[nk]) + '$2');
+    }
+  })();
   html = html.replace(
     /<p class="lead" id="aboutText">.*?<\/p>/s,
     `<p class="lead" id="aboutText">${about.text}</p>`

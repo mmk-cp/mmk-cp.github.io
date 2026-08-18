@@ -396,51 +396,53 @@ html[lang="fa"] .github-link { font-family: var(--font-fa); }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
 
-@page { size: A4; margin: 12mm 0 11mm; }
+@page { size: A4; margin: 9mm 0 9mm; }
 
 @media print {
   html { background: #fff; }
-  body { margin: 0; color: #172622; background: #fff; font-size: 10pt; line-height: 1.65; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  body { margin: 0; color: #172622; background: #fff; font-size: 9.2pt; line-height: 1.55; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   body > :not(.print-resume) { display: none !important; }
-  .print-resume { display: block !important; width: 210mm; min-height: 0; padding: 0 14mm; color: #172622; background: #fff; }
-  .print-header { display: flex; align-items: center; justify-content: space-between; gap: 8mm; padding-bottom: 6mm; border-bottom: .45mm solid #087f6b; break-inside: avoid; page-break-inside: avoid; }
+  .print-resume { display: block !important; width: 210mm; min-height: 0; padding: 0 11mm; color: #172622; background: #fff; }
+  .print-header { display: flex; align-items: center; justify-content: space-between; gap: 6mm; padding-bottom: 4mm; border-bottom: .45mm solid #087f6b; break-inside: avoid; page-break-inside: avoid; }
   .print-identity { min-width: 0; }
-  .print-header h1 { margin: 0; color: #17332f; font-size: 23pt; line-height: 1.2; }
-  .print-role { margin: 1.5mm 0 0; color: #3b554d; font-size: 11pt; font-weight: 700; }
-  .print-techline { margin: 1mm 0 0; color: #6a8a80; font-family: var(--font-mono); font-size: 8pt; }
-  .print-contact { margin: 2.8mm 0 0; color: #455c55; font-family: var(--font-mono); font-size: 8.2pt; line-height: 1.8; overflow-wrap: anywhere; }
+  .print-header h1 { margin: 0; color: #17332f; font-size: 20pt; line-height: 1.15; }
+  .print-role { margin: 1mm 0 0; color: #3b554d; font-size: 9.5pt; font-weight: 700; }
+  .print-techline { margin: .8mm 0 0; color: #6a8a80; font-family: var(--font-mono); font-size: 7.2pt; }
+  .print-contact { margin: 2mm 0 0; color: #455c55; font-family: var(--font-mono); font-size: 7.4pt; line-height: 1.6; overflow-wrap: anywhere; }
   .print-contact a { color: inherit; text-decoration: none; }
   .print-messenger { white-space: nowrap; }
-  .print-photo { width: 28mm; height: 28mm; flex: 0 0 28mm; border: .45mm solid #bfd9d0; border-radius: 3mm; object-fit: cover; object-position: center; }
-  .print-section { padding-top: 5mm; break-inside: avoid; page-break-inside: avoid; }
-  .print-section h2 { margin: 0 0 2.5mm; padding-bottom: 1.5mm; border-bottom: .25mm solid #d7e3de; color: #17332f; font-size: 11.2pt; line-height: 1.5; }
-  .print-section > p { margin: 0; color: #3b514a; line-height: 1.75; }
-  .print-skills p + p { margin-top: 2mm; }
+  .print-photo { width: 24mm; height: 24mm; flex: 0 0 24mm; border: .45mm solid #bfd9d0; border-radius: 2.5mm; object-fit: cover; object-position: center; }
+  .print-section { padding-top: 4mm; }
+  .print-section h2 { margin: 0 0 2mm; padding-bottom: 1.2mm; border-bottom: .25mm solid #d7e3de; color: #17332f; font-size: 10pt; line-height: 1.4; }
+  .print-section > p { margin: 0; color: #3b514a; line-height: 1.65; }
+  .print-skills p + p { margin-top: 1.2mm; }
   .print-skills strong, .print-github strong { color: #17332f; }
-  .print-item { margin: 0 0 4mm; break-inside: avoid; page-break-inside: avoid; }
-  .print-item-compact { margin-bottom: 3mm; }
-  .print-item-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 5mm; }
-  .print-item-heading h3 { margin: 0; color: #17332f; font-size: 10pt; line-height: 1.5; }
-  .print-item-heading span { color: #52675f; font-size: 8pt; line-height: 1.55; text-align: end; font-family: var(--font-mono); }
+  .print-about p { font-size: 8.6pt; line-height: 1.6; }
+  .print-item { margin: 0 0 2.8mm; break-inside: avoid; page-break-inside: avoid; }
+  .print-item-compact { margin-bottom: 2mm; }
+  .print-item-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 4mm; }
+  .print-item-heading h3 { margin: 0; color: #17332f; font-size: 9pt; line-height: 1.4; }
+  .print-item-heading span { color: #52675f; font-size: 7.2pt; line-height: 1.4; text-align: end; font-family: var(--font-mono); }
   .print-item-heading b { color: #087f6b; }
   .print-item-heading a { color: inherit; text-decoration: none; }
-  .print-item p { margin: 1.2mm 0 0; color: #3d514b; line-height: 1.7; font-size: 9pt; }
-  .print-item ul { margin: 1.5mm 0 0; padding-inline-start: 4mm; color: #3d514b; line-height: 1.65; font-size: 9pt; }
+  .print-item p { margin: 1mm 0 0; color: #3d514b; line-height: 1.6; font-size: 8.2pt; }
+  .print-item ul { margin: 1.2mm 0 0; padding-inline-start: 3.5mm; color: #3d514b; line-height: 1.55; font-size: 8.2pt; }
   .print-item li { padding-inline-start: .5mm; }
-  .print-item li + li { margin-top: .8mm; }
-  .print-flow { margin: 1.5mm 0 0; color: #087f6b; font-family: var(--font-mono); font-size: 8pt; font-weight: 600; }
-  .print-github { margin: 1.5mm 0 0; color: #3d514b; line-height: 1.7; font-size: 9pt; }
+  .print-item li + li { margin-top: .6mm; }
+  .print-flow { margin: 1.2mm 0 0; color: #087f6b; font-family: var(--font-mono); font-size: 7pt; font-weight: 600; }
+  .print-github { margin: 1.2mm 0 0; color: #3d514b; line-height: 1.6; font-size: 8.4pt; }
   .print-github a { color: #087f6b; font-family: var(--font-mono); text-decoration: none; }
-  .print-repo-list { margin: 1mm 0 0; padding: 0; list-style: none; }
-  .print-repo-list li { display: flex; align-items: baseline; gap: 3mm; color: #3d514b; line-height: 1.55; font-size: 8pt; break-inside: avoid; page-break-inside: avoid; }
-  .print-repo-list li + li { margin-top: .8mm; }
-  .print-repo-list a { flex: 0 0 40mm; color: #087f6b; font-family: var(--font-mono); font-size: 7.5pt; font-weight: 700; overflow-wrap: anywhere; text-decoration: none; }
-  .print-repo-list span { min-width: 0; font-size: 7.5pt; }
-  .print-final-section { break-inside: avoid; page-break-inside: avoid; }
+  .print-repo-list { margin: .8mm 0 0; padding: 0; list-style: none; }
+  .print-repo-list li { display: flex; align-items: baseline; gap: 2.5mm; color: #3d514b; line-height: 1.45; font-size: 7.4pt; break-inside: avoid; page-break-inside: avoid; }
+  .print-repo-list li + li { margin-top: .6mm; }
+  .print-repo-list a { flex: 0 0 44mm; color: #087f6b; font-family: var(--font-mono); font-size: 7pt; font-weight: 700; overflow-wrap: anywhere; text-decoration: none; }
+  .print-repo-list span { min-width: 0; font-size: 7pt; }
+  .print-more { color: #52675f; font-family: var(--font-mono); font-size: 7pt; }
+  .print-final-section { }
   .print-final-section > div { min-width: 0; }
-  .print-final-section > div + div { margin-top: 3mm; }
-  .print-final-section h2 { font-size: 9.5pt; }
-  .print-final-section p { margin: 0; color: #3d514b; font-size: 8pt; line-height: 1.65; }
-  html[lang="en"] .print-resume { font-family: var(--font-en); line-height: 1.6; }
-  html[lang="en"] .print-header h1 { font-size: 22pt; }
+  .print-final-section > div + div { margin-top: 2.2mm; }
+  .print-final-section h2 { font-size: 8.8pt; }
+  .print-final-section p { margin: 0; color: #3d514b; font-size: 7.6pt; line-height: 1.5; }
+  html[lang="en"] .print-resume { font-family: var(--font-en); line-height: 1.5; }
+  html[lang="en"] .print-header h1 { font-size: 19pt; }
 }
