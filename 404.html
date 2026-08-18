@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#17332f">
+  <meta name="theme-color" content="#0e2420">
   <meta name="robots" content="noindex">
-  <title>مسیر پیدا نشد | MMK Resume</title>
+  <title>Not Found | MMK Resume</title>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --deep: #17332f;
-      --deep-soft: #23443e;
+      --deep: #0f2e2a;
+      --deep-soft: #1a3d36;
       --teal: #087f6b;
       --teal-soft: #d9eee7;
       --coral: #bd5141;
@@ -24,10 +24,9 @@
       --font-fa: "Vazirmatn", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
       --font-en: "Inter", "Noto Sans", Arial, sans-serif;
     }
-
     * { box-sizing: border-box; }
     html, body { min-height: 100%; }
-    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font-fa); }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font-en); }
     a, button { font: inherit; }
     a { color: inherit; }
     :focus-visible { outline: 3px solid rgba(8, 127, 107, .35); outline-offset: 4px; }
@@ -46,10 +45,10 @@
     .nf-code { color: var(--deep); font: 800 132px/.85 var(--font-en); letter-spacing: 0; text-align: center; }
     .nf-code span { display: block; color: var(--coral); font-size: 16px; line-height: 1.3; letter-spacing: .08em; }
     .nf-copy { min-width: 0; padding-inline-start: 34px; border-inline-start: 1px solid var(--line); }
-    .nf-copy h1 { margin: 0; color: var(--deep); font-size: 32px; line-height: 1.35; }
+    .nf-copy h1 { margin: 0; color: var(--deep); font-size: 30px; line-height: 1.35; }
     .nf-copy h1::after { content: "_"; color: var(--coral); animation: cursor 1s steps(2, end) infinite; }
-    .nf-copy > p { max-width: 600px; margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 2; }
-    .nf-copy .nf-en { margin-top: 5px; font: 500 13px/1.7 var(--font-en); direction: ltr; text-align: start; }
+    .nf-copy > p { max-width: 600px; margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .nf-copy .nf-fa { margin-top: 6px; color: var(--muted); font: 400 13px/1.9 var(--font-fa); direction: rtl; text-align: start; }
     .nf-terminal { margin: 25px 0 0; padding: 17px 19px; border: 1px solid #315950; border-radius: 7px; color: #cde4dc; background: var(--deep); font: 500 12px/1.9 var(--font-en); direction: ltr; overflow: auto; }
     .nf-terminal .prompt { color: #8fe0cd; }
     .nf-terminal .comment { color: #9db6ae; }
@@ -73,8 +72,8 @@
       .nf-code { font-size: 92px; text-align: start; }
       .nf-code span { display: inline; margin-inline-start: 8px; font-size: 12px; }
       .nf-copy { margin-top: 20px; padding: 0; border: 0; }
-      .nf-copy h1 { font-size: 26px; }
-      .nf-copy > p { font-size: 13px; line-height: 1.95; }
+      .nf-copy h1 { font-size: 24px; }
+      .nf-copy > p { font-size: 13px; }
       .nf-terminal { font-size: 11px; }
       .nf-actions { flex-direction: column; }
       .nf-button { width: 100%; }
@@ -88,38 +87,36 @@
 <body>
   <div class="not-found-page">
     <header class="nf-header">
-      <a class="nf-brand" href="/" aria-label="بازگشت به رزومه">
+      <a class="nf-brand" href="/" aria-label="Back to resume">
         <span class="nf-mark" aria-hidden="true">MMK</span>
-        <span class="nf-brand-copy"><strong>Mohammad Mahdi Karimi</strong><small>Back-end · DevOps · WordPress</small></span>
+        <span class="nf-brand-copy"><strong>Mohammad Mahdi Karimi</strong><small>Backend Developer · DevOps · Agentic AI</small></span>
       </a>
       <span class="nf-status"><i aria-hidden="true"></i> ROUTE_NOT_FOUND</span>
     </header>
-
     <main class="nf-main">
       <div class="nf-layout">
         <div class="nf-code" aria-hidden="true">404<span>NOT FOUND</span></div>
         <section class="nf-copy" aria-labelledby="not-found-title">
-          <h1 id="not-found-title">این مسیر در رزومه پیدا نشد</h1>
-          <p>احتمالاً این لینک هنوز به تیم پروژه ملحق نشده است. آدرس را بررسی کن یا از مسیر اصلی ادامه بده.</p>
-          <p class="nf-en">This route did not make it to the final build. Check the address or return to the resume.</p>
+          <h1 id="not-found-title">This page was not found</h1>
+          <p>This route did not make it to the final build. Check the address or return to the resume.</p>
+          <p class="nf-fa">این مسیر در رزومه پیدا نشد. آدرس را بررسی کنید یا به صفحهٔ اصلی بازگردید.</p>
           <pre class="nf-terminal"><span class="prompt">$</span> find <code id="missingPath">/requested-route</code>
 <span class="comment"># result</span> <code>route not found</code>
 <span class="prompt">$</span> cd <code>/resume</code></pre>
           <div class="nf-actions">
             <a class="nf-button nf-button-primary" href="/">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 8h-3v9H6v-9H3l9-8Zm0 2.7L7.3 10H8v8h8v-8h.7L12 5.7Z"/></svg>
-              <span>بازگشت به رزومه</span>
+              <span>Back to resume</span>
             </a>
             <button class="nf-button nf-button-secondary" id="backButton" type="button">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10.8 5.2 1.4 1.4L8.8 10H21v2H8.8l3.4 3.4-1.4 1.4L5 11l5.8-5.8Z"/></svg>
-              <span>صفحهٔ قبل</span>
+              <span>Go back</span>
             </button>
           </div>
         </section>
       </div>
     </main>
-
-    <footer class="nf-footer">MMK Resume · مسیرهای سالم، کدهای قابل نگه‌داری</footer>
+    <footer class="nf-footer">MMK Resume — Backend Developer · DevOps · Agentic AI</footer>
   </div>
   <script>
     const path = document.getElementById('missingPath');

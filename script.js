@@ -1,303 +1,116 @@
 'use strict';
 
-const translations = {
+/* UI strings — resume content lives in resume-data.js */
+const uiStrings = {
   fa: {
     skip: 'پرش به محتوای اصلی',
     brandName: 'محمد مهدی کریمی',
-    brandRole: 'توسعه‌دهنده بک‌اند، DevOps و Agentic AI',
+    brandRole: 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI',
     navAbout: 'درباره من',
     navExperience: 'سوابق',
     navProjects: 'پروژه‌ها',
     navSkills: 'مهارت‌ها',
-    navEducation: 'تحصیلات',
+    navContact: 'تماس',
     exportPdf: 'خروجی PDF',
-    eyebrow: 'BACK-END · DEVOPS · WORDPRESS',
+    toggleNav: 'باز و بسته کردن فهرست',
+    eyebrow: 'BACKEND DEVELOPMENT · DEVOPS · AGENTIC AI',
     name: 'محمد مهدی کریمی',
-    title: 'توسعه‌دهنده بک‌اند، DevOps و Agentic AI',
-    heroSummary: 'توسعه‌دهنده نرم‌افزار با تمرکز بر بک‌اند، DevOps و Agentic AI. تجربهٔ عملی من شامل توسعهٔ API و سرویس‌های داده‌محور با Python و PHP، طراحی گردش‌کارهای هوشمند با OpenAI، LangChain و LangGraph، و آماده‌سازی و اجرای سرویس‌ها با Docker و Linux است. در کنار این موارد، توسعه و سفارشی‌سازی افزونه‌های WordPress و WooCommerce نیز بخشی از تجربهٔ من است.',
+    title: 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI',
     locationLabel: 'موقعیت',
     location: 'تهران، ایران',
     focusLabel: 'تمرکز اصلی',
-    focus: 'بک‌اند، DevOps و Agentic AI',
+    focus: 'بک‌اند · DevOps · Agentic AI',
     workTypeLabel: 'نوع همکاری',
     workType: 'پروژه‌ای',
     profileCardTitle: 'اطلاعات تماس',
+    available: 'در دسترس',
     telegram: 'تلگرام',
     bale: 'بله',
     messenger: 'پیام‌رسان',
     aboutTitle: 'درباره من',
-    aboutText: 'توسعه‌دهنده نرم‌افزار با تجربه در ساخت و نگه‌داری سرویس‌های بک‌اند، APIهای REST و وب‌اپلیکیشن‌های داده‌محور با Python، PHP، Django، FastAPI، Flask و Laravel. در پروژه‌های Agentic AI با OpenAI، LangChain و LangGraph، گردش‌کارهای چندمرحله‌ای دارای human-in-the-loop، tool calling و اتصال به APIهای بیرونی پیاده‌سازی کرده‌ام. در حوزهٔ DevOps با Docker، Linux و Git برای آماده‌سازی محیط و اجرای سرویس‌ها کار می‌کنم و طراحی سایت و توسعهٔ افزونه‌های WordPress و WooCommerce نیز بخشی از تجربهٔ من است. در تحویل پروژه بر حل دقیق مسئله، معماری قابل نگه‌داری و مستندسازی روشن تمرکز دارم.',
-    strength1Title: 'بک‌اند و API',
-    strength1Text: 'طراحی و توسعهٔ منطق کسب‌وکار، سرویس‌های وب و APIهای REST با Python و PHP؛ تجربهٔ عملی با Django، FastAPI، Flask و Laravel.',
-    strength2Title: 'داده و ذخیره‌سازی',
-    strength2Text: 'کار با PostgreSQL، MySQL/MariaDB، MongoDB، SQL Server و Redis برای داده و کش؛ به‌همراه مدیریت فایل در Amazon S3 و Object Storage.',
-    strength3Title: 'DevOps و اجرای سرویس',
-    strength3Text: 'استفاده از Docker، Linux و Git برای نیازهای پروژه، آماده‌سازی محیط و پشتیبانی از اجرای سرویس‌ها.',
-    strength4Title: 'WordPress و WooCommerce',
-    strength4Text: 'طراحی سایت، توسعه و سفارشی‌سازی افزونه‌های WordPress و کار با WooCommerce با PHP و JavaScript.',
     experienceTitle: 'سوابق شغلی',
-    tehran: 'تهران',
-    job1Date: 'تیر ۱۴۰۴ تا اکنون',
-    job1Title: 'توسعه‌دهنده بک‌اند، DevOps و WordPress',
-    job1Company: 'بیجک',
-    job1Text: 'همکاری در توسعه و نگه‌داری محصولات بیجک؛ شامل سرویس‌های بک‌اند Python، مسئولیت‌های DevOps موردنیاز پروژه، و طراحی و توسعهٔ وب‌سایت و افزونه‌های WordPress/WooCommerce شرکت.',
-    job1Point1: 'توسعه و نگه‌داری سرویس‌های بک‌اند و APIهای محصولات با Python، FastAPI و Django.',
-    job1Point2: 'پیگیری نیازهای DevOps پروژه با Docker، Linux، Git و ابزارهای مرتبط با اجرای سرویس‌ها.',
-    job1Point3: 'طراحی و توسعهٔ وب‌سایت وردپرسی شرکت و برنامه‌نویسی افزونه‌های WordPress/WooCommerce.',
-    jobNewDate: 'آذر ۱۴۰۲ تا خرداد ۱۴۰۴',
-    jobNewTitle: 'طراحی و برنامه‌نویسی وب‌اپلیکیشن',
-    jobNewText: 'توسعهٔ سامانه‌های داده‌محور، از جمله گردش مکاتبات و اپلیکیشن دفترچه تلفن، با Flask و Python و کار با MongoDB، MySQL و SQL Server برای داده‌های حجیم.',
-    jobNewPoint1: 'پیاده‌سازی سرویس‌ها و قابلیت‌های وب با Flask و Python برای سامانه‌های داده‌محور.',
-    jobNewPoint2: 'کار با MongoDB، MySQL و SQL Server برای ذخیره‌سازی، جست‌وجو و مدیریت داده.',
-    jobNewPoint3: 'مشارکت در طراحی راهکارهای قابل استفاده برای مجموعه‌های بزرگ داده و سناریوهای Big Data.',
-    job2Date: 'فروردین ۱۴۰۲ تا آذر ۱۴۰۲',
-    job2Title: 'طراحی و برنامه‌نویسی وب‌اپلیکیشن',
-    job2Company: 'پل درمانگران ایرانیان کهن',
-    job2Text: 'توسعه سرویس‌های وب و رابط‌های کاربردی با Laravel، PHP، JavaScript و MySQL.',
-    job2Point1: 'توسعه سرویس‌های وب و قابلیت‌های کاربری با Laravel، PHP، JavaScript و MySQL.',
-    job2Point2: 'مشارکت در طراحی رابط با Bootstrap 5 و آماده‌سازی تجربه PWA در بخش‌های پروژه.',
-    job3Date: 'آذر ۱۴۰۱ تا دی ۱۴۰۱',
-    job3Title: 'طراح وب‌سایت وردپرس',
-    job3Company: 'گروه حقوقی کهن',
-    job3Text: 'طراحی و پیاده‌سازی وب‌سایت سازمانی گروه حقوقی با WordPress، HTML5 و CSS3؛ از ساختار صفحه‌ها تا ظاهر نهایی.',
-    job3Point1: 'طراحی ساختار صفحات و پیاده‌سازی رابط وب‌سایت سازمانی با WordPress، HTML5 و CSS3.',
-    job3Point2: 'سازمان‌دهی صفحه‌ها و اجزای رابط متناسب با محتوای حقوقی و سازمانی سایت.',
-    job4Date: 'آبان ۱۴۰۰ تا شهریور ۱۴۰۱',
-    job4Title: 'طراح سایت و سئو',
-    job4Company: 'ریکاوری اطلاعات دیتاویژن',
-    job4Text: 'طراحی وب‌سایت خدمات تعمیر و بازیابی اطلاعات و همکاری در بهینه‌سازی ساختار و محتوای صفحات.',
-    job4Point1: 'طراحی و پیاده‌سازی سایت خدمات بازیابی داده با WordPress، PHP و JavaScript.',
-    job4Point2: 'بهینه‌سازی محتوای صفحات و ساختار ارائهٔ خدمات برای دیده‌شدن بهتر در موتورهای جست‌وجو.',
-    job5Date: 'آبان ۱۴۰۰ تا تیر ۱۴۰۱',
-    job5Title: 'طراحی وب‌سایت',
-    job5Company: 'Rasel Group',
-    job5Text: 'طراحی و پیاده‌سازی وب‌سایت با WordPress، HTML و CSS و هماهنگ‌سازی ظاهر صفحات با نیازهای محتوایی.',
-    job5Point1: 'طراحی و پیاده‌سازی صفحه‌های وب با WordPress، HTML و CSS.',
-    job5Point2: 'هماهنگ‌سازی ساختار و ظاهر صفحه‌ها با نیازهای محتوایی وب‌سایت.',
+    earlierExperienceTitle: 'سابقهٔ پیشین — وب و WordPress',
     projectsKicker: 'پروژه‌های Agentic AI، کاربردی و متن‌باز',
     projectsTitle: 'پروژه‌های منتخب',
     productionProject: 'پروژه کاربردی',
     agenticAIProject: 'پروژه Agentic AI',
-    projectBlogAgentTitle: 'عامل هوشمند تولید محتوای وبلاگ',
-    projectBlogAgentText: 'عامل هوشمند چندمرحله‌ای برای تولید محتوای وبلاگ، پیاده‌سازی‌شده با Python، OpenAI، LangChain و LangGraph. جریان کار به‌صورت stateful طراحی شده است تا کاربر در نقاط کنترل انسانی خروجی را تأیید یا ویرایش کند، دستور تازه‌ای بیفزاید و اجرای مراحل را از همان وضعیت ادامه دهد.',
-    projectBlogAgentPoint1: 'ارکستراسیون مراحل مستقل تولید محتوا و مدیریت وضعیت گردش‌کار با LangGraph.',
-    projectBlogAgentPoint2: 'پیاده‌سازی human-in-the-loop برای توقف، بازبینی، اصلاح و ادامهٔ کنترل‌شدهٔ فرایند.',
-    projectAddressAgentTitle: 'عامل هوشمند اعتبارسنجی و مکان‌یابی آدرس',
-    projectAddressAgentText: 'سامانهٔ هوشمند پردازش آدرس در فرایند ثبت سفارش که وجود شهر و استان، تعلق شهر به استان و ساختار آدرس را کنترل و نرمال‌سازی می‌کند. پس از ارزیابی متن توسط LLM، عامل با tool calling آدرس را به API نشان می‌فرستد، مختصات نامزد را دریافت می‌کند و با reverse geocoding، نشانی بازگشتی را با متن ورودی می‌سنجد؛ مختصات دقیق فقط در صورت عبور از آستانهٔ شباهت ذخیره می‌شود و در غیر این صورت مختصات مرجع شهر جایگزین خواهد شد.',
-    projectAddressAgentPoint1: 'طراحی pipeline اعتبارسنجی و نرمال‌سازی برای داده‌های ناقص یا ناسازگار شهر، استان و آدرس.',
-    projectAddressAgentPoint2: 'یکپارچه‌سازی LLM tool calling با API نشان و پیاده‌سازی تصمیم‌گیری مبتنی بر آستانهٔ شباهت همراه با fallback قابل اتکا.',
-    projectCorrespondenceTitle: 'سیستم گردش مکاتبات',
-    projectCorrespondenceText: 'سامانه داخلی ثبت، ارسال و پیگیری مکاتبات با اتصال مستقیم به اسکنر، مدیریت ضمیمه، ثبت دریافت، ارجاع و پاسخ. معماری سامانه با Flask، MongoDB، Amazon S3 و OCR در آزمون عملی برای حداقل ۵ میلیون رکورد ارزیابی شده است.',
-    projectCorrespondencePoint1: 'پوشش مسیر ثبت، اسکن، دریافت، ارجاع و پاسخ به مکاتبات داخلی.',
-    projectCorrespondencePoint2: 'مدیریت فایل‌های ضمیمه و ذخیره‌سازی شیء در کنار داده‌های عملیاتی سامانه.',
-    projectDrugTitle: 'پل دراگ استور',
-    projectDrugText: 'مجموعه‌ای از سرویس‌های وب برای ثبت آگهی‌های مرتبط با داروخانه‌ها و رزرو وقت مشاوره در حوزه دارویی؛ توسعه‌یافته با Laravel، PHP، MySQL/MariaDB، JavaScript و Bootstrap 5.',
-    projectDrugPoint1: 'پیاده‌سازی جریان‌های ثبت آگهی و رزرو وقت در سرویس‌های وب پروژه.',
-    projectDrugPoint2: 'کار با لایه‌های داده و رابط کاربری برای ارائه قابلیت‌های کاربردی حوزه دارویی.',
-    projectPhonebookTitle: 'اپلیکیشن دفترچه تلفن',
-    projectPhonebookText: 'وب‌اپلیکیشن مدیریت مجموعه بزرگ مخاطبان با داده‌های داخلی اختصاصی، صفحه‌بندی و جست‌وجوی پیشرفته برای بازیابی سریع اطلاعات؛ پیاده‌سازی‌شده با Flask و MongoDB و مناسب برای سناریوهای حدود ۱۰ میلیون رکورد.',
-    projectPhonebookPoint1: 'مدیریت داده‌های داخلی اختصاصی مخاطبان در کنار امکان مرور صفحه‌ای داده‌ها.',
-    projectPhonebookPoint2: 'پیاده‌سازی جست‌وجوی پیشرفته برای یافتن سریع اطلاعات در مجموعه مخاطبان.',
-    projectPhonebookPoint3: 'طراحی‌شده برای کار با مجموعه‌های پرحجم و سناریوهای نزدیک به ۱۰ میلیون رکورد.',
     openSourceTitle: 'پروژه‌های متن‌باز',
     allGithubProjects: 'همه پروژه‌ها در GitHub',
-    repo1Text: 'افزونه و ابزارهای WordPress/WooCommerce برای اکوسیستم بیجک.',
-    repo2Text: 'پروژه وب چندفناوری با بک‌اند Python، رابط TypeScript/JavaScript و محیط توسعه مبتنی بر Docker.',
-    repo3Text: 'ابزار Python برای کار با تاریخ‌ها و تقویم جلالی.',
-    repo4Text: 'ابزار تحت وب برای انجام تغییرات روی تصویر و فایل‌های TIFF.',
-    repo5Text: 'پنل مدیریتی تحت وب مبتنی بر Flask برای RADIUS.',
-    repo6Text: 'ابزار Python با کمک OCR برای تشخیص و اصلاح جهت اسناد اسکن‌شده فارسی.',
-    repo7Text: 'ابزار Python برای فشرده‌سازی و تبدیل تصاویر TIFF چندصفحه‌ای.',
+    secondaryProjectsTitle: 'سایر پروژه‌ها',
+    caseStudyLabel: 'بررسی فنی',
+    caseStudyProblem: 'مسئله',
+    caseStudyApproach: 'رویکرد',
+    caseStudyDecisions: 'تصمیم‌های مهندسی',
+    caseStudyStack: 'Stack',
     skillsTitle: 'توانمندی‌های فنی',
-    aiStackTitle: 'هوش مصنوعی و سامانه‌های Agentic',
-    aiStackNote: 'طراحی عامل‌های هوشمند چندمرحله‌ای، مدیریت state، کنترل انسانی و اتصال مدل به ابزارها و APIهای بیرونی.',
-    coreStackTitle: 'بک‌اند و API',
-    coreStackNote: 'توسعهٔ منطق کسب‌وکار، سرویس‌های وب و APIهای REST با Python و PHP و فریم‌ورک‌های Django، FastAPI، Flask و Laravel.',
-    databaseTitle: 'داده، کش و ذخیره‌سازی',
-    databaseNote: 'تجربهٔ کار با پایگاه‌های دادهٔ رابطه‌ای و NoSQL، Redis برای کش، و Amazon S3/Object Storage برای مدیریت فایل.',
-    infraTitle: 'DevOps و ابزارهای پروژه',
-    infraNote: 'استفاده از Docker، Linux و Git برای نیازهای توسعه، اجرای سرویس‌ها و نگه‌داری پروژه‌ها.',
-    wordpressTitle: 'WordPress و توسعهٔ وب',
-    wordpressNote: 'طراحی و توسعهٔ سایت‌های WordPress و افزونه‌های WordPress/WooCommerce با PHP، JavaScript، HTML و CSS.',
-    familiarTitle: 'فناوری‌ها و مفاهیم آشنا',
-    familiarNote: 'آشنایی با ابزارها و مفاهیمی که در آموزش، پروژه‌ها یا همکاری تیمی با آن‌ها کار کرده‌ام؛ سطح تسلط در همهٔ آن‌ها یکسان نیست.',
     educationTitle: 'تحصیلات',
-    degree: 'کارشناسی مهندسی کامپیوتر',
-    university: 'دانشگاه آزاد اسلامی، واحد پردیس',
-    educationDate: 'مهر ۱۴۰۰ تا اکنون',
     certificatesTitle: 'گواهی دوره‌ها',
     mft: 'مجتمع فنی تهران',
     score: 'نمره',
     duration: 'مدت',
     issued: 'صدور',
-    javaDuration: '۵۰ ساعت',
-    networkDuration: '۳۰ ساعت',
     viewCertificate: 'مشاهده گواهی',
-    softSkillsTitle: 'مهارت‌های نرم',
-    soft1: 'حل مسئله و تحلیل',
-    soft2: 'کار تیمی و مسئولیت‌پذیری',
-    soft3: 'مدیریت بحران و استرس',
-    soft4: 'برنامه‌ریزی و آموزش',
-    soft5: 'خلاقیت و ایده‌پردازی',
-    soft6: 'پذیرش بازخورد',
     languageTitle: 'زبان',
-    english: 'انگلیسی',
-    englishLevel: 'سطح متوسط',
+    footerContact: 'تماس:',
+    footerCopy: 'محمد مهدی کریمی — تهران',
+    footerTerminalHint: 'آماده همکاری',
     printSkillsTitle: 'مهارت‌های کلیدی',
-    printAISkills: 'AI و Agentic:',
-    printCoreSkills: 'تمرکز اصلی:',
-    printDataSkills: 'داده و ابزارها:',
-    printHardwareSkills: 'سخت‌افزار:',
-    printWebSkills: 'وب و WordPress:'
+    softSkillsCompact: 'حل مسئله · کار تیمی و مسئولیت‌پذیری · مدیریت بحران · برنامه‌ریزی · پذیرش بازخورد'
   },
   en: {
     skip: 'Skip to main content',
     brandName: 'Mohammad Mahdi Karimi',
-    brandRole: 'Back-end, DevOps & Agentic AI Developer',
+    brandRole: 'Backend Developer · DevOps · Agentic AI',
     navAbout: 'About',
     navExperience: 'Experience',
     navProjects: 'Projects',
     navSkills: 'Skills',
-    navEducation: 'Education',
+    navContact: 'Contact',
     exportPdf: 'Export PDF',
-    eyebrow: 'BACK-END · DEVOPS · WORDPRESS',
+    toggleNav: 'Toggle navigation',
+    eyebrow: 'BACKEND DEVELOPMENT · DEVOPS · AGENTIC AI',
     name: 'Mohammad Mahdi Karimi',
-    title: 'Back-end, DevOps & Agentic AI Developer',
-    heroSummary: 'Software developer focused on back-end engineering, DevOps, and agentic AI. My hands-on experience includes building APIs and data-driven services with Python and PHP, designing intelligent workflows with OpenAI, LangChain, and LangGraph, and preparing and running services with Docker and Linux. I also have experience developing and customizing WordPress and WooCommerce plugins.',
+    title: 'Backend Developer · DevOps · Agentic AI',
     locationLabel: 'Location',
     location: 'Tehran, Iran',
     focusLabel: 'Primary focus',
-    focus: 'Back-end · DevOps · Agentic AI',
+    focus: 'Backend · DevOps · Agentic AI',
     workTypeLabel: 'Engagement',
     workType: 'Project-based',
     profileCardTitle: 'Contact details',
+    available: 'Available',
     telegram: 'Telegram',
     bale: 'Bale',
     messenger: 'Messenger',
     aboutTitle: 'About me',
-    aboutText: 'Software developer experienced in building and maintaining back-end services, REST APIs, and data-driven web applications with Python, PHP, Django, FastAPI, Flask, and Laravel. In agentic AI projects, I have used OpenAI, LangChain, and LangGraph to implement multi-step workflows with human-in-the-loop controls, tool calling, and external API integrations. For DevOps responsibilities, I work with Docker, Linux, and Git to prepare environments and run services, while WordPress website and WooCommerce plugin development are also part of my experience. I focus on precise problem solving, maintainable architecture, and clear documentation.',
-    strength1Title: 'Back-end & APIs',
-    strength1Text: 'Designing and developing business logic, web services, and REST APIs with Python and PHP; hands-on experience with Django, FastAPI, Flask, and Laravel.',
-    strength2Title: 'Data & storage',
-    strength2Text: 'Working with PostgreSQL, MySQL/MariaDB, MongoDB, SQL Server, and Redis for data and caching needs, plus file handling with Amazon S3 and object storage.',
-    strength3Title: 'DevOps & service runtime',
-    strength3Text: 'Using Docker, Linux, and Git for project needs, environment preparation, and service runtime support.',
-    strength4Title: 'WordPress & WooCommerce',
-    strength4Text: 'Designing websites and developing and customizing WordPress plugins and WooCommerce features with PHP and JavaScript.',
     experienceTitle: 'Work experience',
-    tehran: 'Tehran',
-    job1Date: 'Jul 2025 — Present',
-    job1Title: 'Back-end, DevOps & WordPress Developer',
-    job1Company: 'Bijak',
-    job1Text: 'Contributing to the development and maintenance of Bijak products, including Python back-end services, project DevOps responsibilities, and the design and development of the company’s WordPress website and WordPress/WooCommerce plugins.',
-    job1Point1: 'Developing and maintaining product back-end services and APIs with Python, FastAPI, and Django.',
-    job1Point2: 'Supporting project DevOps needs with Docker, Linux, Git, and tooling related to service runtime.',
-    job1Point3: 'Designing and developing the company’s WordPress website and WordPress/WooCommerce plugins.',
-    jobNewDate: 'Dec 2023 — Jun 2025',
-    jobNewTitle: 'Web Application Developer',
-    jobNewText: 'Developed data-driven systems, including a correspondence workflow and a phonebook application, with Flask and Python, using MongoDB, MySQL, and SQL Server for high-volume data.',
-    jobNewPoint1: 'Implemented web services and application features with Flask and Python for data-driven systems.',
-    jobNewPoint2: 'Worked with MongoDB, MySQL, and SQL Server for data storage, search, and management.',
-    jobNewPoint3: 'Contributed to solutions designed for large datasets and Big Data-oriented scenarios.',
-    job2Date: 'Apr 2023 — Dec 2023',
-    job2Title: 'Web Application Developer',
-    job2Company: 'Pol Darmanegaran Iranian Kohan',
-    job2Text: 'Developed web services and user-facing features with Laravel, PHP, JavaScript, and MySQL.',
-    job2Point1: 'Developed web services and user-facing features with Laravel, PHP, JavaScript, and MySQL.',
-    job2Point2: 'Contributed to interface work with Bootstrap 5 and PWA-oriented parts of the project.',
-    job3Date: 'Dec 2022 — Jan 2023',
-    job3Title: 'WordPress Web Designer',
-    job3Company: 'Kohan Legal Group',
-    job3Text: 'Designed and implemented an organizational website for a legal group with WordPress, HTML5, and CSS3, from page structure to final presentation.',
-    job3Point1: 'Designed the page structure and implemented the website interface with WordPress, HTML5, and CSS3.',
-    job3Point2: 'Organized pages and interface elements around the site’s legal and organizational content.',
-    job4Date: 'Nov 2021 — Sep 2022',
-    job4Title: 'Web Designer & SEO',
-    job4Company: 'DataVision Data Recovery',
-    job4Text: 'Designed a website for data-recovery services and contributed to the structure and content optimization of its pages.',
-    job4Point1: 'Designed and implemented a data-recovery services website with WordPress, PHP, and JavaScript.',
-    job4Point2: 'Optimized page content and service presentation for stronger search visibility.',
-    job5Date: 'Nov 2021 — Jul 2022',
-    job5Title: 'Web Designer',
-    job5Company: 'Rasel Group',
-    job5Text: 'Designed and implemented a WordPress website with HTML and CSS, aligning page presentation with its content needs.',
-    job5Point1: 'Designed and implemented website pages with WordPress, HTML, and CSS.',
-    job5Point2: 'Aligned page structure and presentation with the site’s content requirements.',
+    earlierExperienceTitle: 'Earlier Experience — Web & WordPress',
     projectsKicker: 'Agentic AI, applied projects & open source',
     projectsTitle: 'Selected projects',
     productionProject: 'Applied project',
     agenticAIProject: 'Agentic AI project',
-    projectBlogAgentTitle: 'AI Agent for Blog Content Production',
-    projectBlogAgentText: 'A multi-step AI agent for producing blog content, implemented with Python, OpenAI, LangChain, and LangGraph. The workflow is stateful, allowing users to approve or edit outputs, add instructions at human review points, and resume execution from the same state.',
-    projectBlogAgentPoint1: 'Orchestrated independent content-production stages and workflow state with LangGraph.',
-    projectBlogAgentPoint2: 'Implemented human-in-the-loop controls for pausing, reviewing, revising, and resuming the process.',
-    projectAddressAgentTitle: 'AI Agent for Address Validation & Geolocation',
-    projectAddressAgentText: 'An intelligent address-processing system for order registration that validates the existence of cities and provinces, verifies city-province relationships, and normalizes address data. After the LLM evaluates the address text, the agent uses tool calling to send it to the Neshan API, obtain candidate coordinates, and reverse-geocode them before comparing the returned address with the input. Precise coordinates are stored only above a similarity threshold; otherwise, the city reference coordinates are used.',
-    projectAddressAgentPoint1: 'Designed a validation and normalization pipeline for incomplete or inconsistent city, province, and address data.',
-    projectAddressAgentPoint2: 'Integrated LLM tool calling with the Neshan API and implemented similarity-threshold decisions with a reliable fallback.',
-    projectCorrespondenceTitle: 'Correspondence Workflow System',
-    projectCorrespondenceText: 'An internal system for registering, sending, and tracking correspondence with direct scanner integration, attachment handling, receipt registration, forwarding, and replies. Its Flask, MongoDB, Amazon S3, and OCR architecture was evaluated in practical testing for at least five million records.',
-    projectCorrespondencePoint1: 'Covers the internal correspondence flow from registration and scanning through receipt, forwarding, and reply.',
-    projectCorrespondencePoint2: 'Handles attachments and object storage alongside the system’s operational data.',
-    projectDrugTitle: 'Pol Drug Store',
-    projectDrugText: 'A set of web services for pharmacy-related advertisements and pharmaceutical consultation bookings, built with Laravel, PHP, MySQL/MariaDB, JavaScript, and Bootstrap 5.',
-    projectDrugPoint1: 'Implemented advertisement publishing and appointment-booking flows for the project’s web services.',
-    projectDrugPoint2: 'Worked across the data and interface layers for domain-specific user features.',
-    projectPhonebookTitle: 'Phonebook Application',
-    projectPhonebookText: 'A web application for managing a large contact dataset with custom internal fields, pagination, and advanced search for fast retrieval, implemented with Flask and MongoDB and suited to scenarios of around ten million records.',
-    projectPhonebookPoint1: 'Managed custom internal contact fields alongside paginated data browsing.',
-    projectPhonebookPoint2: 'Implemented advanced search for rapid retrieval within the contact dataset.',
-    projectPhonebookPoint3: 'Designed for high-volume datasets and scenarios approaching ten million records.',
     openSourceTitle: 'Open-source projects',
     allGithubProjects: 'All projects on GitHub',
-    repo1Text: 'WordPress/WooCommerce plugin and utilities for the Bijak ecosystem.',
-    repo2Text: 'A multi-technology web project with a Python back end, TypeScript/JavaScript front end, and Docker-based development setup.',
-    repo3Text: 'A Python utility for working with Jalali calendar dates.',
-    repo4Text: 'A web utility for image and TIFF-file operations.',
-    repo5Text: 'A Flask-based web administration panel for RADIUS.',
-    repo6Text: 'An OCR-assisted Python utility for detecting and correcting the orientation of Persian scanned documents.',
-    repo7Text: 'A Python utility for compressing and converting multi-page TIFF images.',
+    secondaryProjectsTitle: 'Other projects',
+    caseStudyLabel: 'Engineering case study',
+    caseStudyProblem: 'Problem',
+    caseStudyApproach: 'Architecture / Approach',
+    caseStudyDecisions: 'Engineering decisions',
+    caseStudyStack: 'Stack',
     skillsTitle: 'Technical capabilities',
-    aiStackTitle: 'AI & agentic systems',
-    aiStackNote: 'Designing multi-step AI agents with state management, human oversight, and model access to tools and external APIs.',
-    coreStackTitle: 'Back-end & APIs',
-    coreStackNote: 'Building business logic, web services, and REST APIs with Python and PHP using Django, FastAPI, Flask, and Laravel.',
-    databaseTitle: 'Data, caching & storage',
-    databaseNote: 'Experience with relational and NoSQL databases, Redis for caching, and Amazon S3/object storage for file handling.',
-    infraTitle: 'DevOps & project tools',
-    infraNote: 'Using Docker, Linux, and Git for development, service runtime needs, and project maintenance.',
-    wordpressTitle: 'WordPress & web development',
-    wordpressNote: 'Designing and developing WordPress websites and WordPress/WooCommerce plugins with PHP, JavaScript, HTML, and CSS.',
-    familiarTitle: 'Familiar technologies & concepts',
-    familiarNote: 'Familiarity with tools and concepts encountered through learning, projects, or team work; proficiency is not equal across all of them.',
     educationTitle: 'Education',
-    degree: 'B.Sc. in Computer Engineering',
-    university: 'Islamic Azad University, Pardis Branch',
-    educationDate: 'Sep 2021 — Present',
     certificatesTitle: 'Training certificates',
     mft: 'Tehran Institute of Technology',
     score: 'Score',
     duration: 'Duration',
     issued: 'Issued',
-    javaDuration: '50 hours',
-    networkDuration: '30 hours',
     viewCertificate: 'View certificate',
-    softSkillsTitle: 'Soft skills',
-    soft1: 'Problem solving & analysis',
-    soft2: 'Teamwork & accountability',
-    soft3: 'Crisis and stress management',
-    soft4: 'Planning & teaching',
-    soft5: 'Creativity & ideation',
-    soft6: 'Receptive to feedback',
     languageTitle: 'Language',
-    english: 'English',
-    englishLevel: 'Intermediate',
+    footerContact: 'Contact:',
+    footerCopy: 'Mohammad Mahdi Karimi — Tehran',
+    footerTerminalHint: 'open to collaboration',
     printSkillsTitle: 'Key skills',
-    printAISkills: 'AI & agentic:',
-    printCoreSkills: 'Core stack:',
-    printDataSkills: 'Data & tooling:',
-    printHardwareSkills: 'Hardware:',
-    printWebSkills: 'Web & WordPress:'
+    softSkillsCompact: 'Problem solving · Teamwork · Crisis management · Planning · Receptive to feedback'
   }
 };
 
@@ -305,157 +118,596 @@ const html = document.documentElement;
 const languageButtons = document.querySelectorAll('[data-lang]');
 const printButton = document.getElementById('printButton');
 const profileImage = document.getElementById('profileImage');
-const printProfileImage = document.getElementById('printProfileImage');
+const printResumeEl = document.getElementById('printResume');
 const certificateDialog = document.getElementById('certificateDialog');
 const certificateImage = document.getElementById('certificateImage');
 const certificateDialogTitle = document.getElementById('certificateDialogTitle');
 const closeDialog = document.getElementById('closeDialog');
+const desktopNav = document.getElementById('desktopNav');
+const navToggle = document.getElementById('navToggle');
+const mobileDrawer = document.getElementById('mobileDrawer');
 
-const certificateData = {
-  java: {
-    src: 'assets/certificates/java-se-8.png',
-    fa: { title: 'گواهی Java SE 8 Programming', alt: 'تصویر گواهی دوره Java SE 8 Programming محمد مهدی کریمی' },
-    en: { title: 'Java SE 8 Programming Certificate', alt: 'Java SE 8 Programming training certificate for Mohammad Mahdi Karimi' }
-  },
-  network: {
-    src: 'assets/certificates/network-plus.png',
-    fa: { title: 'گواهی Network+', alt: 'تصویر گواهی دوره Network+ محمد مهدی کریمی' },
-    en: { title: 'Network+ Certificate', alt: 'Network+ training certificate for Mohammad Mahdi Karimi' }
+function langKey(lang) { return lang === 'en' ? 'en' : 'fa'; }
+function t(lang, key) { return (uiStrings[lang] && uiStrings[lang][key]) || uiStrings.fa[key] || ''; }
+function rd(lang, obj) {
+  if (!obj) return '';
+  if (typeof obj === 'string') return obj;
+  return obj[langKey(lang)] || obj.fa || obj.en || '';
+}
+function esc(s) {
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+/* Typewriter for hero role */
+var typeTimer = null;
+function typeRole(lang) {
+  var heroRole = document.getElementById('heroRole');
+  if (!heroRole) return;
+  var text = rd(lang, resumeData.profile.title) || t(lang, 'title');
+  if (typeTimer) clearTimeout(typeTimer);
+  heroRole.innerHTML = '';
+  var typed = document.createElement('span');
+  typed.className = 'hero-role-typed';
+  var cursor = document.createElement('span');
+  cursor.className = 'hero-role-cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  heroRole.appendChild(typed);
+  heroRole.appendChild(cursor);
+  var i = 0;
+  function step() {
+    if (i < text.length) {
+      typed.textContent += text.charAt(i);
+      i++;
+      typeTimer = setTimeout(step, 32 + Math.random() * 28);
+    }
   }
-};
+  setTimeout(step, 250);
+}
 
-function setLanguage(language, persist = true) {
-  const lang = translations[language] ? language : 'fa';
-  const dictionary = translations[lang];
+/* ---------- Jalali helpers (from jalali.js) ---------- */
+function formatDateLabel(lang, startISO, endISO) {
+  if (typeof formatRange === 'function') return formatRange(lang, startISO, endISO);
+  // fallback
+  return (startISO || '') + ' — ' + (endISO || (lang === 'fa' ? 'اکنون' : 'Present'));
+}
+function projectYearLabel(lang, year) {
+  if (typeof formatProjectYear === 'function') return formatProjectYear(lang, year);
+  return String(year);
+}
 
+/* ---------- Render: Hero summary ---------- */
+function renderHeroSummary(lang) {
+  var el = document.getElementById('heroSummary');
+  if (el) el.textContent = rd(lang, resumeData.profile.heroSummary);
+}
+
+/* ---------- Render: About ---------- */
+function renderAbout(lang) {
+  var aboutText = document.getElementById('aboutText');
+  if (aboutText) aboutText.textContent = rd(lang, resumeData.about.text);
+  var grid = document.getElementById('strengthGrid');
+  if (!grid) return;
+  grid.innerHTML = resumeData.about.strengths.map(function (s) {
+    return '<article><span class="mini-icon" aria-hidden="true">' + esc(s.icon) + '</span>'
+      + '<h3>' + esc(rd(lang, s.title)) + '</h3>'
+      + '<p>' + esc(rd(lang, s.text)) + '</p></article>';
+  }).join('');
+}
+
+/* ---------- Render: Experience ---------- */
+function renderExperience(lang) {
+  var tl = document.getElementById('experienceTimeline');
+  if (tl) {
+    tl.innerHTML = resumeData.experience.primary.map(function (job) {
+      var companyHtml = '';
+      if (job.company) {
+        var cName = esc(rd(lang, job.company));
+        companyHtml = job.companyUrl
+          ? '<p class="company"><a href="' + esc(job.companyUrl) + '" target="_blank" rel="noopener noreferrer">' + cName + '</a></p>'
+          : '<p class="company">' + cName + '</p>';
+      }
+      var bullets = job.bullets.map(function (b) { return '<li>' + esc(rd(lang, b)) + '</li>'; }).join('');
+      var tags = job.tags.map(function (tg) { return '<span>' + esc(tg) + '</span>'; }).join('');
+      var loc = job.location ? esc(rd(lang, job.location)) : esc(t(lang, 'tehran'));
+      var dateLabel = esc(formatDateLabel(lang, job.startDate, job.endDate));
+      var isoDate = esc(job.startDate || '');
+      return '<article class="timeline-item">'
+        + '<div class="timeline-marker" aria-hidden="true"></div>'
+        + '<div class="timeline-meta"><time datetime="' + isoDate + '">' + dateLabel + '</time><span>' + loc + '</span></div>'
+        + '<div class="timeline-body">'
+        + '<h3>' + esc(rd(lang, job.title)) + '</h3>'
+        + companyHtml
+        + '<p>' + esc(rd(lang, job.summary)) + '</p>'
+        + '<ul class="achievement-list">' + bullets + '</ul>'
+        + '<div class="tags">' + tags + '</div>'
+        + '</div></article>';
+    }).join('');
+  }
+  var earlier = document.getElementById('earlierExperience');
+  if (earlier) {
+    var earlierTitle = esc(t(lang, 'earlierExperienceTitle'));
+    var cards = resumeData.experience.earlier.map(function (job) {
+      var dateLabel = esc(formatDateLabel(lang, job.startDate, job.endDate));
+      return '<article class="earlier-card">'
+        + '<div class="earlier-meta"><time datetime="' + esc(job.startDate || '') + '">' + dateLabel + '</time> · <span>' + esc(rd(lang, job.company)) + '</span></div>'
+        + '<h3>' + esc(rd(lang, job.title)) + '</h3>'
+        + '<p>' + esc(rd(lang, job.description)) + '</p>'
+        + '</article>';
+    }).join('');
+    earlier.innerHTML = '<h3 class="earlier-heading">' + earlierTitle + '</h3><div class="earlier-grid">' + cards + '</div>';
+  }
+}
+
+/* ---------- Flow diagram ---------- */
+function renderFlow(flow) {
+  if (!flow || !flow.length) return '';
+  var steps = flow.map(function (s) { return '<span class="flow-step">' + esc(s) + '</span>'; }).join('<span class="flow-arrow" aria-hidden="true">→</span>');
+  return '<div class="agent-flow" dir="ltr" aria-label="Agent workflow">' + steps + '</div>';
+}
+
+/* ---------- Render: Projects ---------- */
+function renderProjects(lang) {
+  var featured = document.getElementById('featuredProjects');
+  if (featured) {
+    featured.innerHTML = resumeData.featuredProjects.map(function (p) {
+      var kicker = p.kind === 'agentic' ? esc(t(lang, 'agenticAIProject')) : esc(t(lang, 'productionProject'));
+      var year = esc(projectYearLabel(lang, p.year));
+      var points = p.points.map(function (pt) { return '<li>' + esc(rd(lang, pt)) + '</li>'; }).join('');
+      var tags = p.tags.map(function (tg) { return '<span>' + esc(tg) + '</span>'; }).join('');
+      var flowHtml = renderFlow(p.flow);
+      var caseHtml = '';
+      if (p.caseStudy) {
+        var cs = p.caseStudy;
+        caseHtml = '<details class="case-study"><summary>' + esc(t(lang, 'caseStudyLabel')) + '</summary>'
+          + '<div class="case-body">'
+          + '<div class="case-row"><strong>' + esc(t(lang, 'caseStudyProblem')) + '</strong><p>' + esc(rd(lang, cs.problem)) + '</p></div>'
+          + '<div class="case-row"><strong>' + esc(t(lang, 'caseStudyApproach')) + '</strong><p>' + esc(rd(lang, cs.approach)) + '</p></div>'
+          + '<div class="case-row"><strong>' + esc(t(lang, 'caseStudyDecisions')) + '</strong><p>' + esc(rd(lang, cs.decisions)) + '</p></div>'
+          + '<div class="case-row"><strong>' + esc(t(lang, 'caseStudyStack')) + '</strong><p dir="ltr">' + esc(cs.stack) + '</p></div>'
+          + '</div></details>';
+      }
+      return '<article class="project-card project-card-featured">'
+        + '<div class="project-topline"><span class="project-type">' + kicker + '</span><span class="project-year">' + year + '</span></div>'
+        + '<h3>' + esc(rd(lang, p.title)) + '</h3>'
+        + '<p>' + esc(rd(lang, p.summary)) + '</p>'
+        + flowHtml
+        + '<ul class="project-points">' + points + '</ul>'
+        + caseHtml
+        + '<div class="tags">' + tags + '</div>'
+        + '</article>';
+    }).join('');
+  }
+  var secondary = document.getElementById('secondaryProjects');
+  if (secondary) {
+    var sec = resumeData.secondaryProjects;
+    if (!sec || !sec.length) { secondary.innerHTML = ''; return; }
+    var secTitle = esc(t(lang, 'secondaryProjectsTitle'));
+    var secCards = sec.map(function (p) {
+      var tags = p.tags.map(function (tg) { return '<span>' + esc(tg) + '</span>'; }).join('');
+      return '<article class="project-card project-card-secondary">'
+        + '<h3>' + esc(rd(lang, p.title)) + '</h3>'
+        + '<p>' + esc(rd(lang, p.summary)) + '</p>'
+        + '<div class="tags">' + tags + '</div></article>';
+    }).join('');
+    secondary.innerHTML = '<h3 class="subsection-title secondary-title">' + secTitle + '</h3><div class="secondary-grid">' + secCards + '</div>';
+  }
+  var repoGrid = document.getElementById('repoGrid');
+  if (repoGrid) {
+    repoGrid.innerHTML = resumeData.openSource.map(function (r) {
+      return '<a class="repo-card" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer">'
+        + '<span class="repo-icon" aria-hidden="true">GH</span>'
+        + '<span class="repo-body"><strong dir="ltr">' + esc(r.name) + '</strong><p>' + esc(rd(lang, r.description)) + '</p><span dir="ltr">' + esc(r.tags) + '</span></span>'
+        + '</a>';
+    }).join('');
+  }
+}
+
+/* ---------- Render: Skills ---------- */
+function renderSkills(lang) {
+  var container = document.getElementById('skillsContainer');
+  if (!container) return;
+  container.innerHTML = resumeData.skills.map(function (g) {
+    var items = g.items.map(function (it) { return '<span>' + esc(it) + '</span>'; }).join('');
+    return '<div class="skill-group">'
+      + '<h3>' + esc(rd(lang, g.title)) + '</h3>'
+      + '<p class="skill-note">' + esc(rd(lang, g.note)) + '</p>'
+      + '<div class="skill-list">' + items + '</div>'
+      + '</div>';
+  }).join('');
+  var soft = document.createElement('div');
+  soft.className = 'skill-group skill-group-soft';
+  soft.innerHTML = '<h3>' + (lang === 'fa' ? 'مهارت‌های نرم' : 'Soft skills') + '</h3>'
+    + '<p class="skill-note skill-note-soft">' + esc(t(lang, 'softSkillsCompact')) + '</p>';
+  container.appendChild(soft);
+}
+
+/* ---------- Render: Education ---------- */
+function renderEducation(lang) {
+  var el = document.getElementById('educationContainer');
+  if (!el) return;
+  var edu = resumeData.education;
+  var dateLabel = formatDateLabel(lang, edu.startDate, edu.endDate);
+  el.innerHTML = '<article class="education-item"><div>'
+    + '<h3>' + esc(rd(lang, edu.degree)) + '</h3>'
+    + '<p>' + esc(rd(lang, edu.university)) + '</p>'
+    + '<time datetime="' + esc(edu.startDate || '') + '">' + esc(dateLabel) + '</time>'
+    + '</div></article>';
+}
+
+/* ---------- Render: Certificates ---------- */
+function renderCertificates(lang) {
+  var el = document.getElementById('certificatesContainer');
+  if (!el) return;
+  el.innerHTML = resumeData.certificates.map(function (c) {
+    return '<article class="certificate-card">'
+      + '<div><h3>' + esc(c.name) + '</h3>'
+      + '<p>' + esc(rd(lang, c.issuer)) + '</p>'
+      + '<dl><div><dt>' + esc(t(lang, 'duration')) + '</dt><dd>' + esc(rd(lang, c.duration)) + '</dd></div>'
+      + '<div><dt>' + esc(t(lang, 'issued')) + '</dt><dd dir="ltr">' + esc(c.issued) + '</dd></div></dl></div>'
+      + '<button class="text-button no-print" type="button" data-certificate="' + esc(c.id) + '">' + esc(t(lang, 'viewCertificate')) + '</button>'
+      + '</article>';
+  }).join('');
+  wireCertificateButtons(lang);
+}
+
+/* ---------- Render: Languages ---------- */
+function renderLanguages(lang) {
+  var el = document.getElementById('languagesContainer');
+  if (!el) return;
+  el.innerHTML = resumeData.languages.map(function (lng) {
+    return '<div class="language-item"><div><strong>' + esc(rd(lang, lng.name)) + '</strong><span>' + esc(rd(lang, lng.level)) + '</span></div></div>';
+  }).join('');
+}
+
+/* ---------- Render: Print ---------- */
+function renderPrint(lang) {
+  if (!printResumeEl) return;
+  var p = resumeData.profile;
+  var isEn = lang === 'en';
+  var name = esc(rd(lang, p.name));
+  var title = esc(rd(lang, p.title));
+  var loc = esc(rd(lang, p.location));
+  var aboutHtml = esc(rd(lang, resumeData.about.text));
+  var printHeader = '<header class="print-header">'
+    + '<div class="print-identity">'
+    + '<h1>' + name + '</h1>'
+    + '<p class="print-role">' + title + '</p>'
+    + '<p class="print-techline" dir="ltr">' + esc(p.techLine) + '</p>'
+    + '<p class="print-contact"><a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a>'
+    + '<span aria-hidden="true"> · </span><a href="' + esc(p.website) + '" target="_blank" rel="noopener noreferrer">' + esc(p.website.replace('https://', '')) + '</a>'
+    + '<span aria-hidden="true"> · </span><span class="print-messenger"><span>' + esc(t(lang, 'messenger')) + '</span> <b dir="ltr">@mmk_cp</b></span>'
+    + '<span aria-hidden="true"> · </span><span>' + loc + '</span></p>'
+    + '</div>'
+    + '<img class="print-photo" src="assets/img/profile.png" width="300" height="300" alt="' + (isEn ? 'Portrait of Mohammad Mahdi Karimi' : 'تصویر پرسنلی محمد مهدی کریمی') + '" decoding="sync">'
+    + '</header>';
+  var printAbout = '<section class="print-section"><h2>' + esc(t(lang, 'aboutTitle')) + '</h2><p>' + aboutHtml + '</p></section>';
+  var skillLines = resumeData.skills.map(function (g) {
+    return '<p><strong>' + esc(rd(lang, g.title)) + ':</strong> ' + esc(g.items.join(', ')) + '</p>';
+  }).join('');
+  var printSkills = '<section class="print-section print-skills"><h2>' + esc(t(lang, 'printSkillsTitle')) + '</h2>' + skillLines + '</section>';
+  var expItems = '';
+  resumeData.experience.primary.forEach(function (job) {
+    var cHtml = '';
+    if (job.company) {
+      var cn = esc(rd(lang, job.company));
+      cHtml = job.companyUrl ? '<b><a href="' + esc(job.companyUrl) + '" target="_blank" rel="noopener noreferrer">' + cn + '</a></b> · ' : '<b>' + cn + '</b> · ';
+    }
+    var bullets = job.bullets.map(function (b) { return '<li>' + esc(rd(lang, b)) + '</li>'; }).join('');
+    var dateLabel = esc(formatDateLabel(lang, job.startDate, job.endDate));
+    expItems += '<article class="print-item">'
+      + '<div class="print-item-heading"><h3>' + esc(rd(lang, job.title)) + '</h3><span>' + cHtml + '<time>' + dateLabel + '</time></span></div>'
+      + '<p>' + esc(rd(lang, job.summary)) + '</p><ul>' + bullets + '</ul></article>';
+  });
+  resumeData.experience.earlier.forEach(function (job) {
+    var dateLabel = esc(formatDateLabel(lang, job.startDate, job.endDate));
+    expItems += '<article class="print-item print-item-compact">'
+      + '<div class="print-item-heading"><h3>' + esc(rd(lang, job.title)) + '</h3><span><b>' + esc(rd(lang, job.company)) + '</b> · <time>' + dateLabel + '</time></span></div>'
+      + '<p>' + esc(rd(lang, job.description)) + '</p></article>';
+  });
+  var printExp = '<section class="print-section"><h2>' + esc(t(lang, 'experienceTitle')) + '</h2>' + expItems + '</section>';
+  var projItems = '';
+  resumeData.featuredProjects.forEach(function (proj) {
+    var yr = esc(projectYearLabel(lang, proj.year));
+    var flowPrint = proj.flow && proj.flow.length ? '<p class="print-flow" dir="ltr">' + esc(proj.flow.join(' → ')) + '</p>' : '';
+    projItems += '<article class="print-item"><div class="print-item-heading"><h3>' + esc(rd(lang, proj.title)) + '</h3><span>' + yr + '</span></div>'
+      + '<p>' + esc(rd(lang, proj.summary)) + '</p>' + flowPrint + '</article>';
+  });
+  if (resumeData.secondaryProjects && resumeData.secondaryProjects.length) {
+    resumeData.secondaryProjects.forEach(function (proj) {
+      projItems += '<article class="print-item print-item-compact"><div class="print-item-heading"><h3>' + esc(rd(lang, proj.title)) + '</h3></div>'
+        + '<p>' + esc(rd(lang, proj.summary)) + '</p></article>';
+    });
+  }
+  projItems += '<p class="print-github"><strong>' + esc(t(lang, 'openSourceTitle')) + ':</strong> <a href="https://github.com/mmk-cp">github.com/mmk-cp</a></p>';
+  projItems += '<ul class="print-repo-list">';
+  resumeData.openSource.forEach(function (r) {
+    projItems += '<li><a href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer" dir="ltr">' + esc(r.name) + '</a><span>' + esc(rd(lang, r.description)) + '</span></li>';
+  });
+  projItems += '</ul>';
+  var printProjects = '<section class="print-section"><h2>' + esc(t(lang, 'projectsTitle')) + '</h2>' + projItems + '</section>';
+  var edu = resumeData.education;
+  var certLine = resumeData.certificates.map(function (c) { return c.name + ' (' + rd(lang, c.duration) + ')'; }).join(' · ') + ' · ' + rd(lang, resumeData.certificates[0].issuer);
+  var langLine = resumeData.languages.map(function (l) { return esc(rd(lang, l.name)) + ' · ' + esc(rd(lang, l.level)); }).join(' · ');
+  var eduLabel = esc(formatDateLabel(lang, edu.startDate, edu.endDate));
+  var printFinal = '<section class="print-section print-final-section">'
+    + '<div><h2>' + esc(t(lang, 'educationTitle')) + '</h2><p><strong>' + esc(rd(lang, edu.degree)) + '</strong> · ' + esc(rd(lang, edu.university)) + ' · ' + eduLabel + '</p></div>'
+    + '<div><h2>' + esc(t(lang, 'certificatesTitle')) + '</h2><p>' + esc(certLine) + '</p></div>'
+    + '<div><h2>' + esc(t(lang, 'languageTitle')) + '</h2><p>' + langLine + '</p></div>'
+    + '</section>';
+  printResumeEl.innerHTML = printHeader + printAbout + printSkills + printExp + printProjects + printFinal;
+}
+
+/* ---------- Certificates ---------- */
+function wireCertificateButtons(lang) {
+  document.querySelectorAll('[data-certificate]').forEach(function (btn) {
+    var clone = btn.cloneNode(true);
+    btn.parentNode.replaceChild(clone, btn);
+  });
+  document.querySelectorAll('[data-certificate]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var id = btn.dataset.certificate;
+      var cert = resumeData.certificates.find(function (c) { return c.id === id; });
+      if (!cert) return;
+      var isEn = lang === 'en';
+      certificateImage.src = cert.image;
+      certificateImage.alt = isEn ? cert.name + ' certificate — Mohammad Mahdi Karimi' : 'تصویر گواهی ' + cert.name + ' — محمد مهدی کریمی';
+      certificateDialogTitle.textContent = cert.name;
+      if (typeof certificateDialog.showModal === 'function') certificateDialog.showModal();
+      else window.open(cert.image, '_blank', 'noopener,noreferrer');
+    });
+  });
+}
+
+/* ---------- SEO meta ---------- */
+function updateSeoMeta(lang) {
+  var isEn = lang === 'en';
+  document.title = isEn
+    ? 'Mohammad Mahdi Karimi — Backend Developer · DevOps · Agentic AI'
+    : 'محمد مهدی کریمی — توسعه‌دهنده بک‌اند · DevOps · Agentic AI';
+  var desc = isEn
+    ? 'Resume of Mohammad Mahdi Karimi — Backend Developer, DevOps and Agentic AI. Python, FastAPI, Docker, Linux and LLM-powered systems.'
+    : 'رزومه محمد مهدی کریمی — توسعه‌دهنده بک‌اند، DevOps و Agentic AI. تجربه در Python، FastAPI، Docker، Linux و سامانه‌های مبتنی بر LLM.';
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = desc;
+  var ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = document.title;
+  var ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = desc;
+  var twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.content = document.title;
+  var twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.content = desc;
+  var schema = document.getElementById('person-schema');
+  if (schema) {
+    try {
+      var data = JSON.parse(schema.textContent);
+      data.jobTitle = isEn ? 'Backend Developer · DevOps · Agentic AI' : 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI';
+      schema.textContent = JSON.stringify(data);
+    } catch (_) {}
+  }
+}
+
+/* ---------- Language ---------- */
+function setLanguage(language, persist) {
+  if (persist === undefined) persist = true;
+  var lang = uiStrings[language] ? language : 'en';
   html.lang = lang;
   html.dir = lang === 'fa' ? 'rtl' : 'ltr';
-  document.title = lang === 'fa'
-    ? 'محمد مهدی کریمی | رزومه'
-    : 'Mohammad Mahdi Karimi | Resume';
-
-  document.querySelector('meta[name="description"]').content = lang === 'fa'
-    ? 'رزومه محمد مهدی کریمی، توسعه‌دهنده بک‌اند، DevOps و WordPress با تجربه در پیاده‌سازی سامانه‌های Agentic AI.'
-    : 'Resume of Mohammad Mahdi Karimi, a back-end, DevOps, and WordPress developer with experience implementing agentic AI systems.';
-
-  const portraitAlt = lang === 'fa'
-    ? 'تصویر پرسنلی محمد مهدی کریمی'
-    : 'Portrait of Mohammad Mahdi Karimi';
-  profileImage.alt = portraitAlt;
-  printProfileImage.alt = portraitAlt;
-
-  document.querySelectorAll('[data-i18n]').forEach((element) => {
-    const key = element.dataset.i18n;
-    if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
-      element.textContent = dictionary[key];
+  updateSeoMeta(lang);
+  var p = resumeData.profile;
+  var portraitAlt = lang === 'fa' ? 'تصویر پرسنلی محمد مهدی کریمی' : 'Portrait of Mohammad Mahdi Karimi';
+  if (profileImage) profileImage.alt = portraitAlt;
+  var avail = document.querySelector('.availability-label');
+  if (avail) avail.textContent = t(lang, 'available');
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var key = el.dataset.i18n;
+    if (uiStrings[lang] && Object.prototype.hasOwnProperty.call(uiStrings[lang], key)) {
+      el.textContent = uiStrings[lang][key];
     }
   });
-
-  languageButtons.forEach((button) => {
-    const active = button.dataset.lang === lang;
-    button.classList.toggle('is-active', active);
-    button.setAttribute('aria-pressed', String(active));
+  languageButtons.forEach(function (btn) {
+    var active = btn.dataset.lang === lang;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-pressed', String(active));
   });
-
-  document.querySelector('.topbar').setAttribute('aria-label', lang === 'fa' ? 'نوار ابزار رزومه' : 'Resume toolbar');
-  document.querySelector('.desktop-nav').setAttribute('aria-label', lang === 'fa' ? 'بخش‌های رزومه' : 'Resume sections');
-  document.querySelector('.mobile-nav').setAttribute('aria-label', lang === 'fa' ? 'دسترسی سریع به بخش‌های رزومه' : 'Quick navigation to resume sections');
-  document.querySelector('.language-switch').setAttribute('aria-label', lang === 'fa' ? 'انتخاب زبان' : 'Select language');
-  printButton.setAttribute('aria-label', dictionary.exportPdf);
-  printButton.setAttribute('title', dictionary.exportPdf);
-  document.querySelector('.level-dots').setAttribute('aria-label', lang === 'fa' ? 'سه از پنج' : 'Three out of five');
-  closeDialog.setAttribute('aria-label', lang === 'fa' ? 'بستن' : 'Close');
-
-  if (persist) {
-    try { localStorage.setItem('resume-language', lang); } catch (_) { /* Storage may be unavailable. */ }
+  var topbar = document.querySelector('.topbar');
+  if (topbar) topbar.setAttribute('aria-label', lang === 'fa' ? 'نوار ابزار رزومه' : 'Resume toolbar');
+  if (desktopNav) desktopNav.setAttribute('aria-label', lang === 'fa' ? 'بخش‌های رزومه' : 'Resume sections');
+  var langSwitch = document.querySelector('.language-switch');
+  if (langSwitch) langSwitch.setAttribute('aria-label', lang === 'fa' ? 'انتخاب زبان' : 'Select language');
+  if (printButton) {
+    printButton.setAttribute('aria-label', t(lang, 'exportPdf'));
+    printButton.setAttribute('title', t(lang, 'exportPdf'));
   }
+  if (closeDialog) closeDialog.setAttribute('aria-label', lang === 'fa' ? 'بستن' : 'Close');
+  if (navToggle) navToggle.setAttribute('aria-label', t(lang, 'toggleNav'));
+  renderHeroSummary(lang);
+  typeRole(lang);
+  renderAbout(lang);
+  renderExperience(lang);
+  renderProjects(lang);
+  renderSkills(lang);
+  renderEducation(lang);
+  renderCertificates(lang);
+  renderLanguages(lang);
+  renderPrint(lang);
+  if (persist) {
+    var targetHash = lang === 'en' ? '#en' : '#fa';
+    if (location.hash !== targetHash) {
+      if (history.replaceState) history.replaceState(null, '', targetHash);
+      else location.hash = targetHash;
+    }
+    try { localStorage.setItem('resume-language', lang); } catch (_) {}
+  }
+  // Refresh scroll-spy after language change (layout may shift)
+  requestAnimationFrame(refreshScrollSpy);
 }
 
-function waitForImage(image) {
-  if (!image.src) return Promise.resolve();
-  if (image.complete) {
-    if (typeof image.decode === 'function') return image.decode().catch(() => undefined);
+function resolveInitialLanguage() {
+  var hash = (location.hash || '').replace('#', '').toLowerCase();
+  if (hash === 'en' || hash === 'fa') return hash;
+  try {
+    var saved = localStorage.getItem('resume-language');
+    if (saved === 'en' || saved === 'fa') return saved;
+  } catch (_) {}
+  return 'en';
+}
+
+/* ---------- Print helpers ---------- */
+function waitForImage(img) {
+  if (!img.src) return Promise.resolve();
+  if (img.complete) {
+    if (typeof img.decode === 'function') return img.decode().catch(function () {});
     return Promise.resolve();
   }
-
-  return new Promise((resolve) => {
-    image.addEventListener('load', resolve, { once: true });
-    image.addEventListener('error', resolve, { once: true });
+  return new Promise(function (resolve) {
+    img.addEventListener('load', resolve, { once: true });
+    img.addEventListener('error', resolve, { once: true });
   });
 }
-
-async function waitForPrintResources() {
-  const fontsReady = document.fonts && document.fonts.ready
-    ? document.fonts.ready.catch(() => undefined)
-    : Promise.resolve();
-  const imagesReady = Array.from(document.images).map(waitForImage);
-  await Promise.all([fontsReady, ...imagesReady]);
+function waitForPrintResources() {
+  var fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready.catch(function () {}) : Promise.resolve();
+  var imagesReady = Array.from(document.images).map(waitForImage);
+  return Promise.all([fontsReady].concat(imagesReady));
 }
 
-languageButtons.forEach((button) => {
-  button.addEventListener('click', () => setLanguage(button.dataset.lang));
-});
-
-let printInProgress = false;
-printButton.addEventListener('click', async () => {
-  if (printInProgress) return;
-
-  printInProgress = true;
-  printButton.disabled = true;
-  const originalTitle = document.title;
-  const lang = html.lang;
-  const printTitle = lang === 'fa'
-    ? 'رزومه محمد مهدی کریمی'
-    : 'Mohammad Mahdi Karimi - Resume';
-  let restored = false;
-
-  const restore = () => {
-    if (restored) return;
-    restored = true;
-    document.title = originalTitle;
-    printButton.disabled = false;
-    printInProgress = false;
-  };
-
-  try {
-    await waitForPrintResources();
-    document.title = printTitle;
-    window.addEventListener('afterprint', restore, { once: true });
-    window.print();
-    window.setTimeout(restore, 1500);
-  } catch (_) {
-    restore();
-    window.print();
+/* ---------- Reveal on scroll ---------- */
+function initReveal() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+    return;
   }
-});
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  // Hero is visible immediately
+  var hero = document.querySelector('.hero');
+  if (hero) hero.classList.add('is-visible');
+}
 
-document.querySelectorAll('[data-certificate]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const item = certificateData[button.dataset.certificate];
-    const language = html.lang === 'en' ? 'en' : 'fa';
-    certificateImage.src = item.src;
-    certificateImage.alt = item[language].alt;
-    certificateDialogTitle.textContent = item[language].title;
-    if (typeof certificateDialog.showModal === 'function') {
-      certificateDialog.showModal();
-    } else {
-      window.open(item.src, '_blank', 'noopener,noreferrer');
-    }
+/* ---------- Scroll spy for desktop nav ---------- */
+var spyObserver = null;
+function refreshScrollSpy() {
+  if (spyObserver) spyObserver.disconnect();
+  if (!desktopNav || window.matchMedia('(max-width: 1040px)').matches) return;
+  var links = desktopNav.querySelectorAll('a[href^="#"]');
+  if (!links.length) return;
+  var sections = [];
+  links.forEach(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if (sec) sections.push({ link: a, section: sec });
   });
+  if (!('IntersectionObserver' in window)) return;
+  spyObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        links.forEach(function (l) { l.classList.toggle('is-active', l.getAttribute('href') === '#' + id); });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(function (s) { spyObserver.observe(s.section); });
+}
+
+/* ---------- Event wiring ---------- */
+languageButtons.forEach(function (btn) {
+  btn.addEventListener('click', function () { setLanguage(btn.dataset.lang); });
+});
+window.addEventListener('hashchange', function () {
+  var hash = (location.hash || '').replace('#', '').toLowerCase();
+  if ((hash === 'en' || hash === 'fa') && hash !== html.lang) setLanguage(hash, true);
 });
 
-closeDialog.addEventListener('click', () => certificateDialog.close());
-certificateDialog.addEventListener('click', (event) => {
-  if (event.target === certificateDialog) certificateDialog.close();
+/* Mobile drawer with backdrop */
+var drawerBackdrop = document.getElementById('drawerBackdrop');
+function toggleDrawer(open) {
+  if (navToggle) navToggle.setAttribute('aria-expanded', String(open));
+  if (mobileDrawer) mobileDrawer.hidden = !open;
+  if (drawerBackdrop) drawerBackdrop.hidden = !open;
+}
+if (navToggle && mobileDrawer) {
+  navToggle.addEventListener('click', function () {
+    var open = navToggle.getAttribute('aria-expanded') !== 'true';
+    toggleDrawer(open);
+  });
+  mobileDrawer.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { toggleDrawer(false); });
+  });
+}
+if (drawerBackdrop) {
+  drawerBackdrop.addEventListener('click', function () { toggleDrawer(false); });
+}
+
+/* Hero spotlight follows mouse */
+var heroSpotlight = document.getElementById('heroSpotlight');
+if (heroSpotlight) {
+  document.querySelector('.hero').addEventListener('mousemove', function (e) {
+    var rect = e.currentTarget.getBoundingClientRect();
+    var x = ((e.clientX - rect.left) / rect.width) * 100;
+    var y = ((e.clientY - rect.top) / rect.height) * 100;
+    heroSpotlight.style.setProperty('--mx', x + '%');
+    heroSpotlight.style.setProperty('--my', y + '%');
+  });
+}
+
+/* Scroll progress indicator */
+var scrollProgress = document.getElementById('scrollProgress');
+if (scrollProgress) {
+  window.addEventListener('scroll', function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? window.scrollY / h : 0;
+    scrollProgress.style.transform = 'scaleX(' + p + ')';
+  }, { passive: true });
+}
+
+/* Role typing animation — initialized on first boot via typeRole, re-triggered on language switch */
+var roleEl = null;
+
+var printInProgress = false;
+if (printButton) {
+  printButton.addEventListener('click', function () {
+    if (printInProgress) return;
+    printInProgress = true;
+    printButton.disabled = true;
+    var originalTitle = document.title;
+    var lang = html.lang;
+    var printTitle = lang === 'fa' ? 'رزومه محمد مهدی کریمی' : 'Mohammad Mahdi Karimi - Resume';
+    var restored = false;
+    function restore() {
+      if (restored) return;
+      restored = true;
+      document.title = originalTitle;
+      printButton.disabled = false;
+      printInProgress = false;
+    }
+    waitForPrintResources().then(function () {
+      document.title = printTitle;
+      window.addEventListener('afterprint', restore, { once: true });
+      window.print();
+      window.setTimeout(restore, 1500);
+    }).catch(function () { restore(); window.print(); });
+  });
+}
+if (closeDialog && certificateDialog) {
+  closeDialog.addEventListener('click', function () { certificateDialog.close(); });
+  certificateDialog.addEventListener('click', function (e) { if (e.target === certificateDialog) certificateDialog.close(); });
+}
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && certificateDialog && certificateDialog.open) certificateDialog.close();
+  if (e.key === 'Escape' && mobileDrawer && !mobileDrawer.hidden) toggleDrawer(false);
 });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && certificateDialog.open) certificateDialog.close();
-});
-
-let initialLanguage = 'fa';
-try {
-  const saved = localStorage.getItem('resume-language');
-  if (saved === 'fa' || saved === 'en') initialLanguage = saved;
-} catch (_) { /* Use the default language. */ }
-setLanguage(initialLanguage, false);
+/* ---------- Boot ---------- */
+setLanguage(resolveInitialLanguage(), false);
+initReveal();
+refreshScrollSpy();
+window.addEventListener('resize', function () { refreshScrollSpy(); });
