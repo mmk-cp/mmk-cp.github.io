@@ -292,8 +292,9 @@ function renderProjects(lang) {
     var secTitle = esc(t(lang, 'secondaryProjectsTitle'));
     var secCards = sec.map(function (p) {
       var tags = p.tags.map(function (tg) { return '<span>' + esc(tg) + '</span>'; }).join('');
+      var secYear = p.year ? ' <span class="project-year">' + esc(projectYearLabel(lang, p.year)) + '</span>' : '';
       return '<article class="project-card project-card-secondary">'
-        + '<h3>' + esc(rd(lang, p.title)) + '</h3>'
+        + '<h3>' + esc(rd(lang, p.title)) + secYear + '</h3>'
         + '<p>' + esc(rd(lang, p.summary)) + '</p>'
         + '<div class="tags">' + tags + '</div></article>';
     }).join('');
@@ -425,7 +426,8 @@ function renderPrint(lang) {
   });
   if (resumeData.secondaryProjects && resumeData.secondaryProjects.length) {
     resumeData.secondaryProjects.forEach(function (proj) {
-      projItems += '<article class="print-item print-item-compact"><div class="print-item-heading"><h3>' + esc(rd(lang, proj.title)) + '</h3></div>'
+      var secYr = proj.year ? '<span>' + esc(projectYearLabel(lang, proj.year)) + '</span>' : '';
+      projItems += '<article class="print-item print-item-compact"><div class="print-item-heading"><h3>' + esc(rd(lang, proj.title)) + '</h3>' + secYr + '</div>'
         + '<p>' + esc(rd(lang, proj.summary)) + '</p></article>';
     });
   }

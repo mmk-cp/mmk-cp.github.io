@@ -122,7 +122,8 @@ function renderProjects(lang) {
   const secondaryList = resumeData.secondaryProjects || [];
   const secondary = secondaryList.length ? `<h3 class="subsection-title secondary-title">${esc(labels[lang].secondaryTitle)}</h3><div class="secondary-grid">${secondaryList.map(p => {
     const tags = p.tags.map(t=>`<span>${esc(t)}</span>`).join('');
-    return `<article class="project-card project-card-secondary"><h3>${esc(rd(lang, p.title))}</h3><p>${esc(rd(lang, p.summary))}</p><div class="tags">${tags}</div></article>`;
+    const secYear = p.year ? ` <span class="project-year">${esc(projectYear(lang, p.year))}</span>` : '';
+    return `<article class="project-card project-card-secondary"><h3>${esc(rd(lang, p.title))}${secYear}</h3><p>${esc(rd(lang, p.summary))}</p><div class="tags">${tags}</div></article>`;
   }).join('')}</div>` : '';
   const repos = resumeData.openSource.map(r => `<a class="repo-card" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer"><span class="repo-icon" aria-hidden="true">GH</span><span class="repo-body"><strong dir="ltr">${esc(r.name)}</strong><p>${esc(rd(lang, r.description))}</p><span dir="ltr">${esc(r.tags)}</span></span></a>`).join('');
   return { featured, secondary, repos };

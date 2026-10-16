@@ -11,8 +11,8 @@ const resumeData = {
     eyebrow: { fa: 'DEVOPS · SOFTWARE ENGINEERING · AGENTIC AI', en: 'DEVOPS · SOFTWARE ENGINEERING · AGENTIC AI' },
     techLine: 'Docker · Linux · CI/CD · Python · FastAPI · LLM Systems',
     heroSummary: {
-      fa: 'مهندس DevOps و نرم‌افزار فعال در حوزه زیرساخت Linux، استقرار کانتینری و سرویس‌های بک‌اند؛ از نصب و راه‌اندازی فیزیکی و نرم‌افزاری سرورها و مجازی‌سازی با KVM، Proxmox و VMware تا خطوط CI/CD، محیط‌های Docker و APIهای production با Python. در کنار آن، سامانه‌های Agentic AI مبتنی بر LLM با فراخوانی ابزار و کنترل انسانی و همچنین توسعه و یکپارچه‌سازی WordPress/WooCommerce را انجام می‌دهم.',
-      en: 'DevOps and software engineer working across Linux infrastructure, containerized deployments, and backend services — from physical and software setup of servers and virtualization with KVM, Proxmox, and VMware to CI/CD pipelines, Docker environments, and production Python APIs. I also build LLM-powered agentic systems with tool calling and human-in-the-loop controls, alongside WordPress/WooCommerce development and integrations.'
+      fa: 'مهندس DevOps و نرم‌افزار فعال در حوزه زیرساخت Linux، استقرار کانتینری و سرویس‌های بک‌اند؛ از آماده‌سازی سرورها و مجازی‌سازی با KVM، Proxmox و VMware تا خطوط CI/CD، محیط‌های Docker و APIهای production با Python. در کنار آن، سامانه‌های Agentic AI مبتنی بر LLM با فراخوانی ابزار و کنترل انسانی و همچنین توسعه و یکپارچه‌سازی WordPress/WooCommerce را انجام می‌دهم.',
+      en: 'DevOps and software engineer working across Linux infrastructure, containerized deployments, and backend services — from provisioning servers and virtualization with KVM, Proxmox, and VMware to CI/CD pipelines, Docker environments, and production Python APIs. I also build LLM-powered agentic systems with tool calling and human-in-the-loop controls, alongside WordPress/WooCommerce development and integrations.'
     },
     location: { fa: 'تهران، ایران', en: 'Tehran, Iran' },
     focus: { fa: 'DevOps · مهندسی نرم‌افزار · Agentic AI', en: 'DevOps · Software Engineering · Agentic AI' },
@@ -27,8 +27,8 @@ const resumeData = {
 
   about: {
     text: {
-      fa: 'مهندس DevOps و نرم‌افزار با تجربه در نصب و راه‌اندازی فیزیکی و نرم‌افزاری سرورها، مجازی‌سازی با KVM، Proxmox و VMware، و مدیریت محیط‌های Linux. خطوط CI/CD با GitLab را راه‌اندازی کرده‌ام و سرویس‌های production را با Docker و Docker Compose مستقر و نگه‌داری می‌کنم؛ آشنایی پایه با Kubernetes نیز دارم. در کنار زیرساخت، سرویس‌های بک‌اند و APIهای REST را با Python — FastAPI، Django و Flask — و PHP/Laravel توسعه داده‌ام و سامانه‌های Agentic AI با OpenAI، LangChain و LangGraph شامل فراخوانی ابزار و کنترل انسانی پیاده‌سازی کرده‌ام.',
-      en: 'DevOps and software engineer with experience in physical and software setup of servers, virtualization with KVM, Proxmox, and VMware, and Linux environment management. I set up CI/CD pipelines with GitLab and deploy and maintain production services with Docker and Docker Compose, with foundational familiarity with Kubernetes. Alongside infrastructure, I develop backend services and REST APIs in Python — FastAPI, Django, and Flask — and PHP/Laravel, and implement Agentic AI systems with OpenAI, LangChain, and LangGraph, including tool calling and human-in-the-loop controls.'
+      fa: 'مهندس DevOps و نرم‌افزار با تجربه در آماده‌سازی سرورهای فیزیکی و محیط‌های مجازی — نصب و راه‌اندازی سخت‌افزار، نصب سیستم‌عامل و مجازی‌سازی با KVM، Proxmox و VMware — همراه با مدیریت محیط‌های Linux. خطوط CI/CD با GitLab را راه‌اندازی کرده‌ام و سرویس‌های production را با Docker و Docker Compose مستقر و نگه‌داری می‌کنم. در کنار زیرساخت، سرویس‌های بک‌اند و APIهای REST را با Python — FastAPI، Django و Flask — و PHP/Laravel توسعه داده‌ام و سامانه‌های Agentic AI با OpenAI، LangChain و LangGraph شامل فراخوانی ابزار و کنترل انسانی پیاده‌سازی کرده‌ام.',
+      en: 'DevOps and software engineer with experience in provisioning physical servers and virtualized environments — hardware setup, OS installation, and virtualization with KVM, Proxmox, and VMware — plus Linux administration. I set up GitLab CI/CD pipelines and deploy and maintain production services with Docker and Docker Compose. Alongside infrastructure, I develop backend services and REST APIs in Python — FastAPI, Django, and Flask — and PHP/Laravel, and implement Agentic AI systems with OpenAI, LangChain, and LangGraph, including tool calling and human-in-the-loop controls.'
     },
     strengths: [
       {
@@ -69,14 +69,15 @@ const resumeData = {
           en: 'Working on Bijak products across infrastructure, deployments, and Python backend services, alongside Agentic AI and intelligent VoIP systems and the company website and WordPress/WooCommerce plugins.'
         },
         bullets: [
-          { fa: 'نصب و راه‌اندازی فیزیکی و نرم‌افزاری سرورها و مدیریت محیط‌های Linux؛ کار با ماشین‌های مجازی KVM، Proxmox و VMware.', en: 'Physical and software setup of servers and Linux environment management; working with KVM, Proxmox, and VMware virtual machines.' },
-          { fa: 'راه‌اندازی خطوط CI/CD با GitLab و استقرار و نگه‌داری سرویس‌های production با Docker و Docker Compose؛ آشنایی پایه با Kubernetes.', en: 'Setting up GitLab CI/CD pipelines and deploying and maintaining production services with Docker and Docker Compose; foundational familiarity with Kubernetes.' },
+          { fa: 'آماده‌سازی سرورهای فیزیکی و محیط‌های مجازی: نصب و راه‌اندازی سخت‌افزار، نصب سیستم‌عامل و مدیریت Linux همراه با ماشین‌های مجازی KVM، Proxmox و VMware.', en: 'Provisioning physical servers and virtualized environments: hardware setup, OS installation, and Linux administration across KVM, Proxmox, and VMware virtual machines.' },
+          { fa: 'راه‌اندازی خطوط CI/CD با GitLab و استقرار و نگه‌داری سرویس‌های production با Docker و Docker Compose.', en: 'Setting up GitLab CI/CD pipelines and deploying and maintaining production services with Docker and Docker Compose.' },
+          { fa: 'پیکربندی شبکه و روتر میکروتیک: مدیریت چند WAN، تنظیم NAT و دسترسی سرویس‌ها از بیرون، تعریف IPهای مجاز و قوانین mangle برای هدایت ترافیک هر IP به WAN مشخص.', en: 'Configuring network and MikroTik routers: multi-WAN management, NAT and external service exposure, IP allowlists, and mangle rules routing each IP range to its designated WAN.' },
           { fa: 'توسعه و نگه‌داری سرویس‌ها و APIهای بک‌اند محصولات با Python، FastAPI و Django در محیط production.', en: 'Developing and maintaining product backend services and APIs with Python, FastAPI, and Django in production.' },
           { fa: 'طراحی و توسعه سامانه‌ها و گردش‌کارهای Agentic AI مبتنی بر LLM، شامل ارکستراسیون مدل، فراخوانی ابزار، اتصال به APIهای بیرونی و مراحل کنترل‌شده توسط انسان.', en: 'Designing and developing LLM-based Agentic AI systems and workflows, including model orchestration, tool calling, external API integration, and human-controlled workflow stages.' },
           { fa: 'راه‌اندازی و توسعه زیرساخت و سامانه‌های VoIP هوشمند با Asterisk، Issabel، PJSIP/SIP و اتصال به سرویس‌های AI؛ شامل پلتفرم تماس خروجی و مسیریابی تماس ورودی به ایجنت صوتی.', en: 'Setting up and developing intelligent VoIP infrastructure and systems with Asterisk, Issabel, PJSIP/SIP, and AI service integration — including an outbound calling platform and inbound-call routing to a voice agent.' },
           { fa: 'طراحی و توسعه وب‌سایت شرکت و افزونه‌های WordPress/WooCommerce با یکپارچه‌سازی سرویس‌های داخلی و خارجی.', en: 'Designing and developing the company website and WordPress/WooCommerce plugins integrated with internal and external services.' }
         ],
-        tags: ['Docker', 'Linux', 'GitLab CI/CD', 'KVM', 'Proxmox', 'VMware', 'FastAPI', 'Django', 'Python', 'Asterisk', 'SIP', 'WordPress', 'WooCommerce', 'PHP']
+        tags: ['Docker', 'Linux', 'GitLab CI/CD', 'KVM', 'Proxmox', 'VMware', 'MikroTik', 'FastAPI', 'Django', 'Python', 'Asterisk', 'SIP', 'WordPress', 'WooCommerce', 'PHP']
       },
       {
         id: 'data-driven',
@@ -195,8 +196,8 @@ const resumeData = {
       year: 2026,
       title: { fa: 'AI Agent اعتبارسنجی و مکان‌یابی آدرس', en: 'AI Agent for Address Validation & Geolocation' },
       summary: {
-        fa: 'سرویس پیشنهاد موقعیت آدرس فارسی با FastAPI، صف job پایدار، و worker مستقل که از ابزارهای MCP نشان و Playwright استفاده می‌کند. برای هر آدرس تا سه پیشنهاد دارای شاهد تولید می‌شود؛ انتخاب candidate یا اصلاح دستی اپراتور جدا ثبت می‌شود و نتیجه اصلی ایجنت بازنویسی نمی‌گردد. اعتبارسنجی با reverse geocoding و آستانهٔ شباهت انجام می‌شود و در صورت عدم عبور، مختصات مرجع شهر به‌عنوان fallback ذخیره می‌گردد. آماده‌سازی با MySQL و Redis، انتشار image از رجیستری داخلی و استقرار با Portainer؛ readiness سرویس با health probe و آزمون زنده مدل کنترل می‌شود.',
-        en: 'Persian address-geolocation service with FastAPI, a durable job queue, and an independent worker using Neshan and Playwright MCP tools. Each address yields up to three evidenced candidates; operator selection or manual pin correction is recorded separately without overwriting the agent result. Validation uses reverse geocoding with a similarity threshold, falling back to city reference coordinates below threshold. Backed by MySQL and Redis, published via an internal registry image, and deployed with Portainer; readiness is gated by health probes and a live model check.'
+        fa: 'سرویس پیشنهاد موقعیت آدرس فارسی با FastAPI، صف job پایدار و worker مستقل که از ابزارهای MCP نشان و Playwright استفاده می‌کند. هر آدرس تا سه پیشنهاد دارای شاهد دریافت می‌کند؛ اعتبارسنجی با reverse geocoding و آستانهٔ شباهت انجام می‌شود و در صورت عدم عبور، مختصات مرجع شهر به‌عنوان fallback ذخیره می‌گردد. استقرار با image رجیستری داخلی و Portainer روی MySQL و Redis.',
+        en: 'Persian address-geolocation service with FastAPI, a durable job queue, and an independent worker using Neshan and Playwright MCP tools. Each address receives up to three evidenced candidates, validated by reverse geocoding against a similarity threshold with city reference coordinates as fallback. Deployed from an internal registry image with Portainer over MySQL and Redis.'
       },
       points: [
         { fa: 'طراحی pipeline اعتبارسنجی و نرمال‌سازی برای داده‌های ناقص یا ناسازگار شهر، استان و آدرس.', en: 'Designed a validation and normalization pipeline for incomplete or inconsistent city, province, and address data.' },
@@ -232,8 +233,8 @@ const resumeData = {
       year: 2024,
       title: { fa: 'اپلیکیشن دفترچه تلفن سازمانی', en: 'Organizational Phonebook Application' },
       summary: {
-        fa: 'وب‌اپلیکیشن مدیریت مجموعهٔ بزرگ مخاطبان با داده‌های داخلی اختصاصی، صفحه‌بندی و جست‌وجوی پیشرفته برای بازیابی سریع اطلاعات؛ پیاده‌سازی‌شده با Flask و MongoDB و مناسب برای سناریوهای حدود ۱۰ میلیون رکورد.',
-        en: 'Web application for managing a large contact dataset with custom internal fields, pagination, and advanced search for fast retrieval, implemented with Flask and MongoDB and suited to scenarios of around ten million records.'
+        fa: 'وب‌اپلیکیشن مدیریت مجموعهٔ بزرگ مخاطبان با داده‌های داخلی اختصاصی، صفحه‌بندی و جست‌وجوی پیشرفته برای بازیابی سریع اطلاعات؛ پیاده‌سازی‌شده با Flask و MongoDB و طراحی‌شده برای مدیریت حدود ۱۰ میلیون رکورد.',
+        en: 'Web application for managing a large contact dataset with custom internal fields, pagination, and advanced search for fast retrieval, implemented with Flask and MongoDB and designed to handle around ten million records.'
       },
       points: [
         { fa: 'مدیریت داده‌های داخلی اختصاصی مخاطبان در کنار امکان مرور صفحه‌ای داده‌ها.', en: 'Managed custom internal contact fields alongside paginated browsing.' },
@@ -247,18 +248,21 @@ const resumeData = {
   secondaryProjects: [
     {
       id: 'issabel-realtime',
+      year: 2026,
       title: { fa: 'اتصال Issabel به ایجنت صوتی AI', en: 'Issabel to Realtime AI Voice Agent' },
       summary: { fa: 'مسیریابی تماس ورودی از ترانک Issabel به برنامه Python با ARI و ExternalMedia و انتقال صدای RTP به سرویس AI؛ تست‌شده روی Asterisk 18.', en: 'Routing inbound calls from an Issabel trunk into a Python app via ARI and ExternalMedia, streaming RTP audio to an AI service; tested on Asterisk 18.' },
       tags: ['Python', 'Asterisk', 'ARI', 'RTP', 'Issabel', 'OpenAI Realtime']
     },
     {
       id: 'ai-services',
+      year: 2026,
       title: { fa: 'سرویس تخمین ابعاد تصویر با AI', en: 'AI Image Dimension Estimation Service' },
       summary: { fa: 'سرویس FastAPI با صف Celery و Redis: ثبت درخواست، پاسخ ۲۰۲ و تحویل نتیجه ناهمگام همراه با احراز هویت کلید و endpointهای مدیریتی.', en: 'FastAPI service with a Celery/Redis queue: request registration, 202 responses, and async result delivery with key auth and admin endpoints.' },
       tags: ['Python', 'FastAPI', 'Celery', 'Redis', 'MySQL', 'Docker']
     },
     {
       id: 'pol-drug',
+      year: 2023,
       title: { fa: 'پل دراگ استور', en: 'Pol Drug Store' },
       summary: { fa: 'مجموعهٔ سرویس‌های وب برای ثبت آگهی‌های مرتبط با داروخانه‌ها و رزرو وقت مشاوره دارویی؛ توسعه‌یافته با Laravel، PHP و MySQL.', en: 'Web services for pharmacy-related listings and pharmaceutical consultation bookings, built with Laravel, PHP, and MySQL.' },
       tags: ['Laravel', 'PHP', 'MySQL', 'MariaDB', 'JavaScript', 'Bootstrap 5']
@@ -281,8 +285,8 @@ const resumeData = {
     {
       id: 'infra',
       title: { fa: 'زیرساخت و DevOps', en: 'DevOps & Infrastructure' },
-      note: { fa: 'نصب و راه‌اندازی سرورها، مجازی‌سازی، خطوط CI/CD، کانتینرسازی و مدیریت Linux همراه با VoIP.', en: 'Server setup, virtualization, CI/CD pipelines, containerization, and Linux administration, plus VoIP.' },
-      items: ['Linux', 'Docker', 'Docker Compose', 'CI/CD', 'GitLab CI/CD', 'Git', 'KVM', 'Proxmox', 'VMware', 'Kubernetes (familiar)', 'Nginx', 'Traefik', 'TLS / SSL', 'Object Storage', 'S3', 'Asterisk', 'Issabel', 'SIP / PJSIP']
+      note: { fa: 'نصب و راه‌اندازی سرورها، مجازی‌سازی، خطوط CI/CD، کانتینرسازی و مدیریت Linux همراه با شبکه و VoIP.', en: 'Server setup, virtualization, CI/CD pipelines, containerization, and Linux administration, plus networking and VoIP.' },
+      items: ['Linux', 'Docker', 'Docker Compose', 'CI/CD', 'GitLab CI/CD', 'Git', 'KVM', 'Proxmox', 'VMware', 'Kubernetes (familiar)', 'MikroTik', 'Multi-WAN', 'NAT', 'Nginx', 'Traefik', 'TLS / SSL', 'Object Storage', 'S3', 'Asterisk', 'Issabel', 'SIP / PJSIP']
     },
     {
       id: 'backend',
