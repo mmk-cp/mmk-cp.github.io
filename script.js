@@ -5,7 +5,7 @@ const uiStrings = {
   fa: {
     skip: 'پرش به محتوای اصلی',
     brandName: 'محمد مهدی کریمی',
-    brandRole: 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI',
+    brandRole: 'مهندس DevOps و نرم‌افزار',
     navAbout: 'درباره من',
     navExperience: 'سوابق',
     navProjects: 'پروژه‌ها',
@@ -13,13 +13,13 @@ const uiStrings = {
     navContact: 'تماس',
     exportPdf: 'خروجی PDF',
     toggleNav: 'باز و بسته کردن فهرست',
-    eyebrow: 'BACKEND DEVELOPMENT · DEVOPS · AGENTIC AI',
+    eyebrow: 'DEVOPS · SOFTWARE ENGINEERING · AGENTIC AI',
     name: 'محمد مهدی کریمی',
-    title: 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI',
+    title: 'مهندس DevOps و نرم‌افزار',
     locationLabel: 'موقعیت',
     location: 'تهران، ایران',
     focusLabel: 'تمرکز اصلی',
-    focus: 'بک‌اند · DevOps · Agentic AI',
+    focus: 'DevOps · مهندسی نرم‌افزار · Agentic AI',
     workTypeLabel: 'وضعیت همکاری',
     workType: 'آماده همکاری',
     profileCardTitle: 'اطلاعات تماس',
@@ -63,7 +63,7 @@ const uiStrings = {
   en: {
     skip: 'Skip to main content',
     brandName: 'Mohammad Mahdi Karimi',
-    brandRole: 'Backend Developer · DevOps · Agentic AI',
+    brandRole: 'DevOps & Software Engineer',
     navAbout: 'About',
     navExperience: 'Experience',
     navProjects: 'Projects',
@@ -71,13 +71,13 @@ const uiStrings = {
     navContact: 'Contact',
     exportPdf: 'Export PDF',
     toggleNav: 'Toggle navigation',
-    eyebrow: 'BACKEND DEVELOPMENT · DEVOPS · AGENTIC AI',
+    eyebrow: 'DEVOPS · SOFTWARE ENGINEERING · AGENTIC AI',
     name: 'Mohammad Mahdi Karimi',
-    title: 'Backend Developer · DevOps · Agentic AI',
+    title: 'DevOps & Software Engineer',
     locationLabel: 'Location',
     location: 'Tehran, Iran',
     focusLabel: 'Primary focus',
-    focus: 'Backend · DevOps · Agentic AI',
+    focus: 'DevOps · Software Engineering · Agentic AI',
     workTypeLabel: 'Availability',
     workType: 'Open to collaboration',
     profileCardTitle: 'Contact details',
@@ -386,6 +386,7 @@ function renderPrint(lang) {
     + '<p class="print-contact"><a href="mailto:' + esc(p.email) + '">' + esc(p.email) + '</a>'
     + '<span aria-hidden="true"> · </span><a href="https://github.com/mmk-cp" target="_blank" rel="noopener noreferrer">github.com/mmk-cp</a>'
     + '<span aria-hidden="true"> · </span><a href="' + esc(p.website) + '" target="_blank" rel="noopener noreferrer">' + esc(p.website.replace('https://', '')) + '</a>'
+    + '<span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/mmk-cp/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mmk-cp</a>'
     + '<span aria-hidden="true"> · </span><span>' + loc + '</span></p>'
     + '</div>'
     + '<img class="print-photo" src="assets/img/profile.png" width="300" height="300" alt="' + (isEn ? 'Portrait of Mohammad Mahdi Karimi' : 'تصویر پرسنلی محمد مهدی کریمی') + '" decoding="sync">'
@@ -484,11 +485,11 @@ function wireCertificateButtons(lang) {
 function updateSeoMeta(lang) {
   var isEn = lang === 'en';
   document.title = isEn
-    ? 'Mohammad Mahdi Karimi — Backend Developer · DevOps · Agentic AI'
-    : 'محمد مهدی کریمی — توسعه‌دهنده بک‌اند · DevOps · Agentic AI';
+    ? 'Mohammad Mahdi Karimi — DevOps & Software Engineer'
+    : 'محمد مهدی کریمی — مهندس DevOps و نرم‌افزار';
   var desc = isEn
-    ? 'Resume of Mohammad Mahdi Karimi — Backend Developer, DevOps and Agentic AI. Python, FastAPI, Docker, Linux and LLM-powered systems.'
-    : 'رزومه محمد مهدی کریمی — توسعه‌دهنده بک‌اند، DevOps و Agentic AI. تجربه در Python، FastAPI، Docker، Linux و سامانه‌های مبتنی بر LLM.';
+    ? 'Resume of Mohammad Mahdi Karimi — DevOps & Software Engineer. Linux, Docker, CI/CD, Python and LLM-powered systems.'
+    : 'رزومه محمد مهدی کریمی — مهندس DevOps و نرم‌افزار. تجربه در Linux، Docker، CI/CD، Python و سامانه‌های مبتنی بر LLM.';
   var metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = desc;
   var ogTitle = document.querySelector('meta[property="og:title"]');
@@ -503,7 +504,7 @@ function updateSeoMeta(lang) {
   if (schema) {
     try {
       var data = JSON.parse(schema.textContent);
-      data.jobTitle = isEn ? 'Backend Developer · DevOps · Agentic AI' : 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI';
+      data.jobTitle = isEn ? 'DevOps & Software Engineer' : 'مهندس DevOps و نرم‌افزار';
       schema.textContent = JSON.stringify(data);
     } catch (_) {}
   }

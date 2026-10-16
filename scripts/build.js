@@ -42,7 +42,7 @@ const jalaliCtx = loadJalali();
 // or load it similarly. For simplicity we inline the needed labels here.
 const labels = {
   en: {
-    location: 'Tehran, Iran', focus: 'Backend · DevOps · Agentic AI',
+    location: 'Tehran, Iran', focus: 'DevOps · Software Engineering · Agentic AI',
     availability: 'Open to collaboration', aboutTitle: 'About me',
     experienceTitle: 'Work experience', earlierTitle: 'Earlier Experience — Web & WordPress',
     projectsKicker: 'Agentic AI, applied projects & open source', projectsTitle: 'Selected projects',
@@ -54,7 +54,7 @@ const labels = {
     langTitle: 'Language', footerContact: 'Contact:', footerHint: 'open to collaboration',
   },
   fa: {
-    location: 'تهران، ایران', focus: 'بک‌اند · DevOps · Agentic AI',
+    location: 'تهران، ایران', focus: 'DevOps · مهندسی نرم‌افزار · Agentic AI',
     availability: 'آماده همکاری', aboutTitle: 'درباره من',
     experienceTitle: 'سوابق کاری', earlierTitle: 'سوابق پیشین — وب و WordPress',
     projectsKicker: 'Agentic AI، پروژه‌های کاربردی و متن‌باز', projectsTitle: 'پروژه‌های منتخب',
@@ -191,24 +191,24 @@ function buildForLang(lang) {
   );
 
   // Title + meta description + og:locale
-  const titleEn = 'Mohammad Mahdi Karimi — Backend Developer · DevOps · Agentic AI';
-  const titleFa = 'محمد مهدی کریمی — توسعه‌دهنده بک‌اند · DevOps · Agentic AI';
-  const descEn = 'Resume of Mohammad Mahdi Karimi — Backend Developer, DevOps and Agentic AI. Python, FastAPI, Docker, Linux and LLM-powered systems.';
-  const descFa = 'رزومه محمد مهدی کریمی — توسعه‌دهنده بک‌اند، DevOps و Agentic AI. تجربه در Python، FastAPI، Docker، Linux و سامانه‌های مبتنی بر LLM.';
+  const titleEn = 'Mohammad Mahdi Karimi — DevOps & Software Engineer';
+  const titleFa = 'محمد مهدی کریمی — مهندس DevOps و نرم‌افزار';
+  const descEn = 'Resume of Mohammad Mahdi Karimi — DevOps & Software Engineer. Linux, Docker, CI/CD, Python and LLM-powered systems.';
+  const descFa = 'رزومه محمد مهدی کریمی — مهندس DevOps و نرم‌افزار. تجربه در Linux، Docker، CI/CD، Python و سامانه‌های مبتنی بر LLM.';
   const title = isEn ? titleEn : titleFa;
   const desc = isEn ? descEn : descFa;
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
   html = html.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(desc)}">`);
   html = html.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(title)}">`);
-  html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(isEn ? 'Backend-focused developer working across APIs, production services, Linux infrastructure, containerized deployments, and LLM-powered agent workflows.' : 'توسعه‌دهنده بک‌اند با تمرکز بر سرویس‌های production، زیرساخت و سامانه‌های Agentic AI مبتنی بر LLM.')}">`);
+  html = html.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(isEn ? 'DevOps and software engineer working across Linux infrastructure, containerized deployments, backend services, and LLM-powered agent workflows.' : 'مهندس DevOps و نرم‌افزار فعال در زیرساخت Linux، استقرار کانتینری و سامانه‌های Agentic AI مبتنی بر LLM.')}">`);
   html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${isEn ? 'en_US' : 'fa_IR'}">`);
   html = html.replace(/<meta property="og:locale:alternate" content="[^"]*">/, `<meta property="og:locale:alternate" content="${isEn ? 'fa_IR' : 'en_US'}">`);
   html = html.replace(/<meta name="twitter:title" content="[^"]*">/, `<meta name="twitter:title" content="${esc(title)}">`);
-  html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(isEn ? 'Backend-focused developer across APIs, production services, and LLM-powered agent workflows.' : 'توسعه‌دهنده بک‌اند با تمرکز بر سرویس‌های production، زیرساخت و سامانه‌های Agentic AI.')}">`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${esc(isEn ? 'DevOps and software engineer across infrastructure, deployments, and LLM-powered agent workflows.' : 'مهندس DevOps و نرم‌افزار در حوزه زیرساخت، استقرار و سامانه‌های Agentic AI.')}">`);
   html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${esc(canonicalForLang)}">`);
 
   // JSON-LD jobTitle + knowsAbout (keep visible content matching)
-  html = html.replace(/"jobTitle": "[^"]*"/, `"jobTitle": "${isEn ? 'Backend Developer · DevOps · Agentic AI' : 'توسعه‌دهنده بک‌اند · DevOps · Agentic AI'}"`);
+  html = html.replace(/"jobTitle": "[^"]*"/, `"jobTitle": "${isEn ? 'DevOps & Software Engineer' : 'مهندس DevOps و نرم‌افزار'}"`);
 
   // Inject static content into empty/filled containers (preserve placeholders for hydration; idempotent)
   html = html.replace(
